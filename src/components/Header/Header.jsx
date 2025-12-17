@@ -1,15 +1,28 @@
 import { Link } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Header.module.css";
-import bagIcon from "../assets/icons/shopping-bag.png";
-import barsIcon from "../assets/icons/bars-edited.png";
+import bagIcon from "../../assets/icons/shopping-bag.png";
+import barsIcon from "../../assets/icons/bars-edited.png";
 
 export const Header = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   function handleDropdown(){
     setIsOpen(status => !status);
   }
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(min-width: 600px)");
+    const onChange = (e) => {
+      if (e.matches) setIsOpen(false);
+    }
+    mq.addEventListener("change", onChange);
+    
+    return () => {
+      mq.removeEventListener("change", onChange);
+    }
+  }, [])
 
   return (
     <header>
