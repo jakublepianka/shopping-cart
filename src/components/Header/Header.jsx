@@ -7,8 +7,12 @@ import barsIcon from "../../assets/icons/bars-edited.png";
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  function handleDropdown(){
-    setIsOpen(status => !status);
+  function handleDropdownToggle() {
+    setIsOpen((status) => !status);
+  }
+
+  function handleDropdownClose() {
+    setIsOpen(false);
   }
 
   useEffect(() => {
@@ -16,38 +20,63 @@ export const Header = () => {
     const mq = window.matchMedia("(min-width: 600px)");
     const onChange = (e) => {
       if (e.matches) setIsOpen(false);
-    }
+    };
     mq.addEventListener("change", onChange);
-    
+
     return () => {
       mq.removeEventListener("change", onChange);
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <header>
       <div className={styles.header}>
         <h1>
-          <Link to>
+          <Link to="/" onClick={handleDropdownClose}>
             <span className={styles.halfOne}>Mobile</span>
             <span className={styles.halfTwo}>Vault</span>
           </Link>
         </h1>
         <nav>
-          <Link to="cart" className={styles.cartLink}>
-            <img src={bagIcon} className={styles.cartIcon}></img>
+          <Link
+            to="cart"
+            className={styles.cartLink}
+            onClick={handleDropdownClose}
+            aria-label="cart"
+          >
+            <img
+              src={bagIcon}
+              className={styles.cartIcon}
+              alt="shopping bag"
+            ></img>
             <span /* number of items inside the cart */></span>
           </Link>
-          <button className={styles.btn} onClick={handleDropdown}>
+          <button
+            className={styles.btn}
+            onClick={handleDropdownToggle}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          >
             <img src={barsIcon} className={styles.navIcon}></img>
           </button>
           <div className={styles.navListContainer}>
             <ul className={isOpen ? styles.navListShown : styles.navListHidden}>
               <li className={styles.navItem}>
-                <Link to="/" className={styles.navLink}>Home</Link>
+                <Link
+                  to="/"
+                  className={styles.navLink}
+                  onClick={handleDropdownClose}
+                >
+                  Home
+                </Link>
               </li>
               <li className={styles.navItem}>
-                <Link to="shop" className={styles.navLink}>Shop</Link>
+                <Link
+                  to="shop"
+                  className={styles.navLink}
+                  onClick={handleDropdownClose}
+                >
+                  Shop
+                </Link>
               </li>
             </ul>
           </div>
@@ -55,4 +84,4 @@ export const Header = () => {
       </div>
     </header>
   );
-}
+};
