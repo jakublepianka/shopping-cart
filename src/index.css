@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/Gilroy-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'InputMono';
+  src: url('./InputMono-Black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'InputMono-Thin';
+  src: url('/InputMono-Thin.woff2') format('woff2');
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --yellowish: #effc5b;
+  --tealish: #90e0e1;
+  --dark-grey: #222222;
+  --dark-grey-tl: #22222277;
+  font-family: 'InputMono-Thin', monospace;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Gilroy', sans-serif;
+  margin: 0;
+}
+
+a {
+  text-decoration-line: none;
+  font-weight: 600;
+}
+
+@media (hover: hover) and (pointer: fine) {}
