@@ -1,0 +1,14 @@
+.rating {
+  display: grid;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  gap: 4px;
+}
+
+.star {
+  display: block;
+  width: 26px;
+  min-width: 26px;
+  filter: brightness(0);
+}

@@ -1,0 +1,12 @@
+.productCard {
+  position: relative;
+  background-color: white;
+  border: solid 1px white;
+  border-radius: 4px;
+  padding-top: 32px;
+}
+
+.thumbnail {
+  display: block;
+  width: 100%;
+}
