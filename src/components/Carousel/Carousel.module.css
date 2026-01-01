@@ -1,0 +1,21 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.view {
+  position: absolute;
+  inset: 0;
+}
+
+.imageList {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 1/1;
+  /* transition: transform 1s ease-in-out; */
+}
+
+.carouselImage {
+  flex: 1 1 100%;
+  width: 100%;
+}
