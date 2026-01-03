@@ -1,19 +1,19 @@
 import styles from "./Carousel.module.css";
-import { useCarousel } from "../../hooks/useCarousel";
+import { useCarousel } from "../../hooks/Carousel/useCarousel";
 import { ImageList } from "./ImageList";
 import { Overlay } from "./Overlay";
 
-export const Carousel = ({ images, carouselOptions }) => {
+export const Carousel = ({ images = [], carouselOptions }) => {
   const {
     modifiedImageList,
-    imageListOffset,
-    imageListRef,
-    isSlideAllowedRef,
-    advanceSlide,
-    retreatSlide,
-    goToSlide,
-    handleChange,
-    fixOffset,
+    offset,
+    next,
+    prev,
+    goTo,
+    listRef,
+    onTransitionStart,
+    onTransitionEnd,
+    change,
   } = useCarousel({ images, carouselOptions });
 
   return (
@@ -22,18 +22,18 @@ export const Carousel = ({ images, carouselOptions }) => {
         <div className={styles.view}></div>
         <ImageList
           images={modifiedImageList}
-          offset={imageListOffset}
-          listRef={imageListRef}
-          onTransitionStart={() => (isSlideAllowedRef.current = false)}
-          onTransitionEnd={fixOffset}
+          offset={offset}
+          listRef={listRef}
+          onTransitionStart={onTransitionStart}
+          onTransitionEnd={onTransitionEnd}
         ></ImageList>
         <Overlay
-          onNext={() => handleChange(advanceSlide)}
-          onPrev={() => handleChange(retreatSlide)}
-          onGoTo={(i) => handleChange(() => goToSlide(i + 1))}
+          onNext={() => change(next)}
+          onPrev={() => change(prev)}
+          onGoTo={(i) => change(() => goTo(i))}
           originalImages={images}
           modifiedImages={modifiedImageList}
-          offset={imageListOffset}
+          offset={offset}
         ></Overlay>
       </div>
     </>
