@@ -11,7 +11,7 @@ export const useCarousel = ({ images, carouselOptions = {} }) => {
   const state = useCarouselState(images);
   const transition = useCarouselTransition({ duration: transitionDuration });
   const autoplay = useCarouselAutoplay({
-    isAuto,
+    isEnabled: images.length > 1 && isAuto,
     delay: transitionDelay,
     onTick: () => {
       transition.enable();
