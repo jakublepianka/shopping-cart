@@ -6,6 +6,7 @@
 .view {
   position: absolute;
   inset: 0;
+  background-color: var(--yellowish);
 }
 
 .imageList {
@@ -17,4 +18,70 @@
 .carouselImage {
   flex: 1 1 100%;
   width: 100%;
+}
+
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 4px;
+}
+
+.prevButton {
+  left: 0;
+}
+
+.nextButton {
+  right: 0;
+}
+
+.prevArrow,
+.nextArrow {
+  width: 24px;
+}
+
+.prevArrow {
+  transform: rotate(90deg) scaleX(1.6);
+}
+
+.nextArrow {
+  transform: rotate(-90deg) scaleX(1.6);
+}
+
+.goToButtonsContainer {
+  position: absolute;
+  display: flex;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  column-gap: 32px;
+}
+
+.goToButtonWrapper {
+  border: 1px solid black;
+  border-radius: 100%;
+}
+
+.goToButton, .goToButtonCurrent {
+  display: block;
+  background-color: black;
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 100%;
+}
+
+.goToButton {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.goToButtonCurrent {
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }

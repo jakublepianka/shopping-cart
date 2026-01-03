@@ -6,9 +6,9 @@ export const useCarousel = ({ images, carouselOptions = {} }) => {
     transitionDelay = 5000,
     transitionDuration = 200,
   } = carouselOptions;
-
   const modifiedImageList = useMemo(() => {
     if (images.length === 0) return [];
+    if (images.length === 1) return [images[0]];
     else return [images[images.length - 1], ...images, images[0]];
   }, [images]);
   const [imageListOffset, setImageListOffset] = useState(1);
@@ -60,7 +60,7 @@ export const useCarousel = ({ images, carouselOptions = {} }) => {
     enableTransition(transitionDuration);
     if (isSlideAllowedRef.current) {
       fn();
-      if (carouselOptions.isAuto) resetInterval();
+      if (isAuto) resetInterval();
     }
   }
 
