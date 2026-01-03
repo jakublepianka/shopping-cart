@@ -27,14 +27,20 @@ export const Carousel = ({ images = [], carouselOptions }) => {
           onTransitionStart={onTransitionStart}
           onTransitionEnd={onTransitionEnd}
         ></ImageList>
-        <Overlay
-          onNext={() => change(next)}
-          onPrev={() => change(prev)}
-          onGoTo={(i) => change(() => goTo(i))}
-          originalImages={images}
-          modifiedImages={modifiedImageList}
-          offset={offset}
-        ></Overlay>
+        {images.length === 0 ? (
+          <span className={styles.emptyMsg}>No available images</span>
+        ) : (
+          images.length > 1 && (
+            <Overlay
+              onNext={() => change(next)}
+              onPrev={() => change(prev)}
+              onGoTo={(i) => change(() => goTo(i))}
+              originalImages={images}
+              modifiedImages={modifiedImageList}
+              offset={offset}
+            ></Overlay>
+          )
+        )}
       </div>
     </>
   );

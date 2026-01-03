@@ -1,12 +1,13 @@
 .carousel {
   position: relative;
   overflow: hidden;
+  background-color: var(--yellowish);
+  box-shadow: 0 3px 15px -3px rgb(0, 0, 0, 0.5);
 }
 
 .view {
   position: absolute;
   inset: 0;
-  background-color: var(--yellowish);
 }
 
 .imageList {
@@ -65,13 +66,24 @@
   border-radius: 100%;
 }
 
-.goToButton, .goToButtonCurrent {
+.goToButtonWrapper:has(.goToButton:focus-visible, .goToButtonCurrent:focus-visible) {
+  transform: scale(1.3);
+  outline: none;
+}
+
+.goToButton,
+.goToButtonCurrent {
   display: block;
   background-color: black;
   width: 14px;
   height: 14px;
   border: none;
   border-radius: 100%;
+}
+
+.goToButton:focus-visible,
+.goToButtonCurrent:focus-visible {
+  outline: none;
 }
 
 .goToButton {
@@ -84,4 +96,12 @@
   position: relative;
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+
+.emptyMsg {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
