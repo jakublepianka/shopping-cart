@@ -39,7 +39,7 @@ export const useCarousel = ({ images, carouselOptions = {} }) => {
     offset: state.offset,
     next: () => state.next(),
     prev: () => state.prev(),
-    goTo: (i) => state.goTo(i + 1),
+    goTo: (i) => state.goTo(i),
     listRef: transition.listRef,
     onTransitionStart,
     onTransitionEnd,
