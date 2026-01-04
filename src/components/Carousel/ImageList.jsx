@@ -8,7 +8,7 @@ export const ImageList = ({
   onTransitionEnd,
 }) => {
   return (
-    <div
+    <ul
       ref={listRef}
       className={styles.imageList}
       style={{ transform: `translateX(-${offset * 100}%)` }}
@@ -16,8 +16,10 @@ export const ImageList = ({
       onTransitionStart={onTransitionStart}
     >
       {images.map((image, i) => (
-        <img key={i} src={image} className={styles.carouselImage}></img>
+        <li key={i} className={styles.carouselItem} >
+          <img src={image} className={styles.carouselImage} alt="Mobile accessory"></img>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
