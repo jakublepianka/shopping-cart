@@ -19,28 +19,30 @@ export const Carousel = ({ images = [], carouselOptions }) => {
   return (
     <>
       <div className={styles.carousel}>
-        <div className={styles.view}></div>
-        <ImageList
-          images={modifiedImageList}
-          offset={offset}
-          listRef={listRef}
-          onTransitionStart={onTransitionStart}
-          onTransitionEnd={onTransitionEnd}
-        ></ImageList>
-        {images.length === 0 ? (
-          <span className={styles.emptyMsg}>No available images</span>
-        ) : (
-          images.length > 1 && (
-            <Overlay
-              onNext={() => change(next)}
-              onPrev={() => change(prev)}
-              onGoTo={(i) => change(() => goTo(i))}
-              originalImages={images}
-              modifiedImages={modifiedImageList}
-              offset={offset}
-            ></Overlay>
-          )
-        )}
+        <section aria-label="Product images">
+          <div className={styles.view}></div>
+          <ImageList
+            images={modifiedImageList}
+            offset={offset}
+            listRef={listRef}
+            onTransitionStart={onTransitionStart}
+            onTransitionEnd={onTransitionEnd}
+          ></ImageList>
+          {images.length === 0 ? (
+            <span className={styles.emptyMsg}>No available images</span>
+          ) : (
+            images.length > 1 && (
+              <Overlay
+                onNext={() => change(next)}
+                onPrev={() => change(prev)}
+                onGoTo={(i) => change(() => goTo(i))}
+                originalImages={images}
+                modifiedImages={modifiedImageList}
+                offset={offset}
+              ></Overlay>
+            )
+          )}
+        </section>
       </div>
     </>
   );
