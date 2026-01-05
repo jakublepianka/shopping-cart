@@ -1,5 +1,5 @@
 import styles from "./Carousel.module.css";
-import { useCarousel } from "../../hooks/Carousel/useCarousel";
+import { useCarousel } from "./hooks/useCarousel";
 import { ImageList } from "./ImageList/ImageList";
 import { Overlay } from "./Overlay/Overlay";
 
