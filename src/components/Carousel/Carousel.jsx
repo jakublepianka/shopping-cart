@@ -1,9 +1,23 @@
 import styles from "./Carousel.module.css";
 import { useCarousel } from "../../hooks/Carousel/useCarousel";
-import { ImageList } from "./ImageList";
-import { Overlay } from "./Overlay";
+import { ImageList } from "./ImageList/ImageList";
+import { Overlay } from "./Overlay/Overlay";
 
-export const Carousel = ({ images = [], carouselOptions }) => {
+const defaultClassNames = {
+  carousel: styles.carousel,
+  carouselSection: styles.carouselSection,
+  view: styles.view,
+  emptyMsg: styles.emptyMsg,
+};
+
+export const Carousel = ({
+  images = [],
+  carouselOptions,
+  carouselClassNames = {},
+  imageListClassNames,
+  overlayClassNames,
+}) => {
+  const classes = { ...defaultClassNames, ...carouselClassNames };
   const {
     modifiedImageList,
     offset,
@@ -18,18 +32,22 @@ export const Carousel = ({ images = [], carouselOptions }) => {
 
   return (
     <>
-      <div className={styles.carousel}>
-        <section aria-label="Product images">
-          <div className={styles.view}></div>
+      <div className={classes.carousel}>
+        <section
+          className={classes.carouselSection}
+          aria-label="Product images"
+        >
+          <div className={classes.view}></div>
           <ImageList
             images={modifiedImageList}
             offset={offset}
             listRef={listRef}
             onTransitionStart={onTransitionStart}
             onTransitionEnd={onTransitionEnd}
+            classNames={imageListClassNames}
           ></ImageList>
           {images.length === 0 ? (
-            <span className={styles.emptyMsg}>No available images</span>
+            <span className={classes.emptyMsg}>No available images</span>
           ) : (
             images.length > 1 && (
               <Overlay
@@ -39,6 +57,7 @@ export const Carousel = ({ images = [], carouselOptions }) => {
                 originalImages={images}
                 modifiedImages={modifiedImageList}
                 offset={offset}
+                classNames={overlayClassNames}
               ></Overlay>
             )
           )}

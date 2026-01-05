@@ -5,6 +5,10 @@
   box-shadow: 0 3px 15px -3px rgb(0, 0, 0, 0.5);
 }
 
+.carouselSection {
+  aspect-ratio: 1/1;
+}
+
 .view {
   position: absolute;
   inset: 0;
@@ -12,12 +16,14 @@
 
 .imageList {
   display: flex;
-  width: 100%;
-  aspect-ratio: 1/1;
+}
+
+.carouselItem {
+  min-width: 100%;
 }
 
 .carouselImage {
-  flex: 1 1 100%;
+  display: block;
   width: 100%;
 }
 
