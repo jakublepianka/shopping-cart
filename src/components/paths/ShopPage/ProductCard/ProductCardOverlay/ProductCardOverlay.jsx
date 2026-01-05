@@ -1,6 +1,6 @@
 import { Rating } from "./Rating/Rating";
 import styles from "./ProductCardOverlay.module.css";
-import addToCartIcon from "../../../../../../assets/icons/shopping-bag-add.png";
+import addToCartIcon from "../../../../../assets/icons/shopping-bag-add.png";
 
 export const ProductCardOverlay = ({ product }) => {
   return (

@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { useProducts } from "../../../context/useProducts";
-import { ProductCard } from "./ShopComponents/ProductCard/ProductCard.jsx";
+import { ProductCard } from "./ProductCard/ProductCard.jsx";
 import styles from "./Shop.module.css";
+import { ProductModal } from "./ProductModal/ProductModal.jsx";
 
 export const Shop = () => {
   const { products } = useProducts();
+  const [selectedProduct, setSelectedProduct] = useState(null);
   return (
     <>
       <h1 className={styles.shopHeading}>Shop</h1>
-      <section >
+      <section className={styles.productListSection}>
         <ul className={styles.productList}>
           {console.log(products)}
           {products.map((product) => (
@@ -15,6 +18,9 @@ export const Shop = () => {
           ))}
         </ul>
       </section>
+
+      {selectedProduct && <ProductModal />}
+
     </>
   );
 };

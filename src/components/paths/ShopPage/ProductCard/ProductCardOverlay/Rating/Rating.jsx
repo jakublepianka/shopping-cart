@@ -1,5 +1,5 @@
 import styles from "./Rating.module.css";
-import starIcon from "../../../../../../../assets/icons/star.png";
+import starIcon from "../../../../../../assets/icons/star.png";
 
 export const Rating = ({ rating }) => {
   const ratingCeil = Math.ceil(rating);

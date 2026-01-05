@@ -6,6 +6,10 @@
   font-weight: 100;
 }
 
+.productListSection {
+  padding-bottom: 32px;
+}
+
 .productList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 90%));
