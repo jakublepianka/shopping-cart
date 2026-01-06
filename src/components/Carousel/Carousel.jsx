@@ -13,6 +13,7 @@ const defaultClassNames = {
 export const Carousel = ({
   images = [],
   carouselOptions,
+  showSideNav,
   carouselClassNames = {},
   imageListClassNames,
   overlayClassNames,
@@ -40,10 +41,10 @@ export const Carousel = ({
           <div className={classes.view}></div>
           <ImageList
             images={modifiedImageList}
-            offset={offset}
-            listRef={listRef}
             onTransitionStart={onTransitionStart}
             onTransitionEnd={onTransitionEnd}
+            listRef={listRef}
+            offset={offset}
             classNames={imageListClassNames}
           ></ImageList>
           {images.length === 0 ? (
@@ -51,11 +52,12 @@ export const Carousel = ({
           ) : (
             images.length > 1 && (
               <Overlay
+                originalImages={images}
+                modifiedImages={modifiedImageList}
+                showSideNav={showSideNav}
                 onNext={() => change(next)}
                 onPrev={() => change(prev)}
                 onGoTo={(i) => change(() => goTo(i))}
-                originalImages={images}
-                modifiedImages={modifiedImageList}
                 offset={offset}
                 classNames={overlayClassNames}
               ></Overlay>

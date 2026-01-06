@@ -13,31 +13,36 @@ const defaultClassNames = {
 };
 
 export const Overlay = ({
+  originalImages,
+  modifiedImages,
+  showSideNav = true,
   onNext,
   onPrev,
   onGoTo,
-  originalImages,
-  modifiedImages,
   offset,
   classNames = {},
 }) => {
   const classes = { ...defaultClassNames, ...classNames };
   return (
     <>
-      <button
-        onClick={onPrev}
-        className={classes.prevButton}
-        aria-label="Previous image"
-      >
-        <img src={arrowIcon} className={classes.prevArrow} />
-      </button>
-      <button
-        onClick={onNext}
-        className={classes.nextButton}
-        aria-label="Next image"
-      >
-        <img src={arrowIcon} className={classes.nextArrow} />
-      </button>
+      {showSideNav && (
+        <>
+          <button
+            onClick={onPrev}
+            className={classes.prevButton}
+            aria-label="Previous image"
+          >
+            <img src={arrowIcon} className={classes.prevArrow} alt="" />
+          </button>
+          <button
+            onClick={onNext}
+            className={classes.nextButton}
+            aria-label="Next image"
+          >
+            <img src={arrowIcon} className={classes.nextArrow} alt="" />
+          </button>
+        </>
+      )}
       <div className={classes.goToButtonsContainer}>
         {originalImages.map((image, i) => (
           <span key={i} className={classes.goToButtonWrapper}>
