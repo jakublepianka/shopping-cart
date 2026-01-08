@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useProducts } from "../../../context/useProducts";
+import { useProducts } from "../../../context/Products/useProducts.js";
 import { ProductCard } from "./ProductCard/ProductCard.jsx";
 import styles from "./Shop.module.css";
 import { ProductModal } from "./ProductModal/ProductModal.jsx";
