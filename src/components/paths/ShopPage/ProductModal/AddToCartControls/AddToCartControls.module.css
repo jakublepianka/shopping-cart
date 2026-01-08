@@ -1,0 +1,93 @@
+.addToCartForm {
+  display: flex;
+  justify-content: center;
+  column-gap: 24px;
+  padding: 6px 8px;
+}
+
+.submitToCart {
+  font-weight: 600;
+  background-color: transparent;
+  border: 2px solid var(--tealish);
+  border-radius: 2px;
+  padding: 8px 12px;
+}
+
+/* 
+.label {
+  font-size: 16px;
+  font-weight: 900;
+  margin: auto 0;
+  text-align: center;
+} */
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.inputField {
+  display: flex;
+  height: 38.4px;
+  min-width: 38.4px;
+  width: calc(fit-content + 8px);
+  border: none;
+  border: 2px solid var(--tealish);
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 2px;
+  justify-content: center;
+  text-align: center;
+  text-indent: -1px;
+}
+
+.minusButton,
+.plusButton {
+  background-color: transparent;
+  border: none;
+}
+
+.plusIcon,
+.minusIcon {
+  display: block;
+  width: 18px;
+}
+
+.invalidMsg {
+  position: absolute;
+  font-size: 12px;
+  font-weight: 600;
+  top: 50%;
+  right: 0;
+  transform: translateY(44%);
+  background-color: var(--tealish);
+  width: 125px;
+  border-radius: 2px;
+  padding: 4px 8px;
+  animation: slideIn 0.25s ease alternate;
+}
+
+.invalidMsg::before {
+  content: "";
+  position: absolute;
+  background-color: var(--tealish);
+  top: -4px;
+  right: 33%;
+  height: 4px;
+  width: 8px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translate(0%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(44%);
+    opacity: 1;
+  }
+}
