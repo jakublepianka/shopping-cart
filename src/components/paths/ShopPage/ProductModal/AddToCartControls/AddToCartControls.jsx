@@ -1,9 +1,8 @@
 import { useState } from "react";
-import minusIcon from "../../../../../assets/icons/minus.png";
-import plusIcon from "../../../../../assets/icons/plus.png";
+import { InputControls } from "./InputControls/InputControls";
 import styles from "./AddToCartControls.module.css";
 
-export const AddToCartControls = ({ availableQuantity }) => {
+export const AddToCartControls = ({ id, availableQuantity }) => {
   const [quantity, setQuantity] = useState(1);
   const [isValid, setIsValid] = useState(true);
 
@@ -36,7 +35,6 @@ export const AddToCartControls = ({ availableQuantity }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isValid) return;
-    console.log(quantity);
   };
 
   const parseInput = (input) => {
@@ -46,8 +44,7 @@ export const AddToCartControls = ({ availableQuantity }) => {
   };
 
   const validate = (input) => {
-    if (input > 0 && input <= availableQuantity /* || input === ""*/)
-      return setIsValid(true);
+    if (input > 0 && input <= availableQuantity) return setIsValid(true);
     else return setIsValid(false);
   };
 
@@ -56,36 +53,14 @@ export const AddToCartControls = ({ availableQuantity }) => {
       <button type="submit" className={styles.submitToCart}>
         Add to cart
       </button>
-      <div className={styles.inputContainer}>
-        <button
-          type="button"
-          className={styles.minusButton}
-          onClick={decrementQuantity}
-        >
-          <img src={minusIcon} className={styles.minusIcon} alt="" />
-        </button>
-        <input
-          type="number"
-          className={styles.inputField}
-          id="quantity"
-          min={1}
-          max={availableQuantity}
-          value={quantity}
-          onChange={(e) => handleInputChange(e)}
-        ></input>
-        <button
-          type="button"
-          className={styles.plusButton}
-          onClick={incrementQuantity}
-        >
-          <img src={plusIcon} className={styles.plusIcon} alt="" />
-        </button>
-        {!isValid && (
-          <span className={styles.invalidMsg}>
-            Must be between 1 and {availableQuantity}
-          </span>
-        )}
-      </div>
+      <InputControls
+        onAdd={incrementQuantity}
+        onSubtract={decrementQuantity}
+        onChange={(e) => handleInputChange(e)}
+        isValid={isValid}
+        quantity={quantity}
+        availableQuantity={availableQuantity}
+      />
     </form>
   );
 };

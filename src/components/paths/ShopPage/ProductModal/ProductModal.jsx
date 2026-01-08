@@ -27,23 +27,27 @@ export const ProductModal = ({ product, onClose }) => {
           images={images}
           carouselOptions={carouselOptions}
           showSideNav={false}
-          carouselClassNames={{ carousel: carouselStyles.carousel, carouselSection: carouselStyles.carouselSection }}
-          overlayClassNames={
-            {
-              goToButtonsContainer: carouselStyles.goToButtonsContainer,
-              goToButtonWrapper: carouselStyles.goToButtonWrapper,
-              goToButton: carouselStyles.goToButton,
-              goToButtonCurrent: carouselStyles.goToButtonCurrent
-            }
-          }
+          carouselClassNames={{
+            carousel: carouselStyles.carousel,
+            carouselSection: carouselStyles.carouselSection,
+          }}
+          overlayClassNames={{
+            goToButtonsContainer: carouselStyles.goToButtonsContainer,
+            goToButtonWrapper: carouselStyles.goToButtonWrapper,
+            goToButton: carouselStyles.goToButton,
+            goToButtonCurrent: carouselStyles.goToButtonCurrent,
+          }}
         ></Carousel>
         <div className={styles.body}>
-          <AddToCartControls availableQuantity={product.stock}/>
+          <AddToCartControls
+            id={product.id}
+            availableQuantity={product.stock}
+          />
 
-            <section className={styles.section}>
-              <h2 className={styles.sectionHeading}>Description</h2>
-              <p className={styles.bodyText}>{product.description}</p>
-            </section>
+          <section className={styles.section}>
+            <h2 className={styles.sectionHeading}>Description</h2>
+            <p className={styles.bodyText}>{product.description}</p>
+          </section>
         </div>
       </div>
     </>
