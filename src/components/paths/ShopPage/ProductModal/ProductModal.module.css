@@ -1,0 +1,54 @@
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background-color: rgb(0,0,0,0.5);
+}
+
+.modalCard {
+  position: fixed;
+  z-index: 999;
+  background-color: white;
+  inset: 16px;
+  border-radius: 2px;
+  overflow-y: scroll;
+}
+
+.productName {
+  font-size: 22px;
+  padding: 16px 56px 0 20px;
+  min-height: 48px;
+  letter-spacing: 1px;
+  text-indent: 1px;
+}
+
+.closeButton {
+  position: absolute;
+  right: 13px;
+  top: 13px;
+  border: none;
+  background-color: transparent;
+}
+
+.closeIcon {
+  display: block;
+  width: 26px;
+  transform: rotate(45deg);
+}
+
+.section {
+  padding: 0 20px;
+
+}
+
+.sectionHeading {
+  font-size: 20px;
+  margin: 12px 0;
+  letter-spacing: 1px;
+  text-indent: 1px;
+}
+
+.bodyText {
+  font-weight: 600;
+  line-height: 1.5;
+}
