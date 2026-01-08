@@ -1,4 +1,4 @@
-import { InputControls } from "./InputControls/InputControls";
+import { CartInputControls } from "./CartInputControls/CartInputControls";
 import styles from "./AddToCartControls.module.css";
 import { useAddToCartControls } from "./useAddToCartControls";
 
@@ -17,7 +17,7 @@ export const AddToCartControls = ({ id, availableQuantity }) => {
       <button type="submit" className={styles.submitToCart}>
         Add to cart
       </button>
-      <InputControls
+      <CartInputControls
         onAdd={incrementQuantity}
         onSubtract={decrementQuantity}
         onChange={(e) => handleInputChange(e)}

@@ -1,8 +1,8 @@
-import styles from "./InputControls.module.css";
+import styles from "./CartInputControls.module.css";
 import minusIcon from "../../../../../../assets/icons/minus.png";
 import plusIcon from "../../../../../../assets/icons/plus.png";
 
-export const InputControls = ({
+export const CartInputControls = ({
   onAdd,
   onSubtract,
   onChange,
