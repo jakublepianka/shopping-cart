@@ -14,13 +14,21 @@ export const Shop = () => {
         <ul className={styles.productList}>
           {console.log(products)}
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              onOpen={() => setSelectedProduct(product)}
+            />
           ))}
         </ul>
       </section>
 
-      {selectedProduct && <ProductModal />}
-
+      {selectedProduct && (
+        <ProductModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </>
   );
 };

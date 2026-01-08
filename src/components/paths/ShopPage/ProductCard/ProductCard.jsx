@@ -1,9 +1,9 @@
 import { ProductCardOverlay } from "./ProductCardOverlay/ProductCardOverlay";
 import styles from "./ProductCard.module.css";
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, onOpen }) => {
   return (
-    <li className={styles.productCard}>
+    <li className={styles.productCard} onClick={onOpen}>
       <article>
         <img src={product.thumbnail} className={styles.thumbnail}></img>
         <ProductCardOverlay product={product} />
