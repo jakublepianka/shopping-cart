@@ -3,7 +3,7 @@ import styles from "./AddToCartControls.module.css";
 import { useAddToCartControls } from "./useAddToCartControls";
 import { useCart } from "../../../../../context/Cart/useCart";
 
-export const AddToCartControls = ({ id, name, image, availableQuantity }) => {
+export const AddToCartControls = ({ id, name, price, image, availableQuantity }) => {
   const { addToCart } = useCart();
   const {
     quantity,
@@ -19,6 +19,7 @@ export const AddToCartControls = ({ id, name, image, availableQuantity }) => {
     addToCart({
       id: id,
       name: name,
+      price: price,
       quantity: quantity,
       availableQuantity: availableQuantity,
       image: image,
