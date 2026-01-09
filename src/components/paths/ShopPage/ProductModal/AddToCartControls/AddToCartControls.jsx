@@ -1,9 +1,15 @@
-import { CartInputControls } from "./CartInputControls/CartInputControls";
+import { CartInputControls } from "../../../../CartInputControls/CartInputControls";
 import styles from "./AddToCartControls.module.css";
-import { useAddToCartControls } from "./useAddToCartControls";
+import { useAddToCartControls } from "../../../../../hooks/useAddToCartControls";
 import { useCart } from "../../../../../context/Cart/useCart";
 
-export const AddToCartControls = ({ id, name, price, image, availableQuantity }) => {
+export const AddToCartControls = ({
+  id,
+  name,
+  price,
+  image,
+  availableQuantity,
+}) => {
   const { addToCart } = useCart();
   const {
     quantity,

@@ -1,6 +1,6 @@
 import styles from "./CartInputControls.module.css";
-import minusIcon from "../../../../../../assets/icons/minus.png";
-import plusIcon from "../../../../../../assets/icons/plus.png";
+import minusIcon from "../../assets/icons/minus.png";
+import plusIcon from "../../assets/icons/plus.png";
 
 export const CartInputControls = ({
   onAdd,
