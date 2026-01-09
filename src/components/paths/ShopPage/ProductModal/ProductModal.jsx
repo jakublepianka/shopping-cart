@@ -41,6 +41,8 @@ export const ProductModal = ({ product, onClose }) => {
         <div className={styles.body}>
           <AddToCartControls
             id={product.id}
+            name={product.title}
+            image={product.thumbnail}
             availableQuantity={product.stock}
           />
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useAddToCartControls = ({ id, availableQuantity }) => {
+export const useAddToCartControls = ({ availableQuantity }) => {
   const [quantity, setQuantity] = useState(1);
   const [isValid, setIsValid] = useState(true);
 
@@ -30,11 +30,6 @@ export const useAddToCartControls = ({ id, availableQuantity }) => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!isValid) return;
-  };
-
   const parseInput = (input) => {
     const num = parseInt(input);
     if (isNaN(num)) return 1;
@@ -52,6 +47,5 @@ export const useAddToCartControls = ({ id, availableQuantity }) => {
     incrementQuantity,
     decrementQuantity,
     handleInputChange,
-    handleSubmit,
   };
 };

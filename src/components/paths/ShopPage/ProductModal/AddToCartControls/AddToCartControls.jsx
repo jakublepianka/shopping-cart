@@ -1,16 +1,29 @@
 import { CartInputControls } from "./CartInputControls/CartInputControls";
 import styles from "./AddToCartControls.module.css";
 import { useAddToCartControls } from "./useAddToCartControls";
+import { useCart } from "../../../../../context/Cart/useCart";
 
-export const AddToCartControls = ({ id, availableQuantity }) => {
+export const AddToCartControls = ({ id, name, image, availableQuantity }) => {
+  const { addToCart } = useCart();
   const {
     quantity,
     isValid,
     incrementQuantity,
     decrementQuantity,
     handleInputChange,
-    handleSubmit,
-  } = useAddToCartControls({ id, availableQuantity });
+  } = useAddToCartControls({ availableQuantity });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!isValid) return;
+    addToCart({
+      id: id,
+      name: name,
+      quantity: quantity,
+      availableQuantity: availableQuantity,
+      image: image,
+    });
+  };
 
   return (
     <form className={styles.addToCartForm} onSubmit={handleSubmit}>
