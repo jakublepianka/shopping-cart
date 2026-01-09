@@ -11,13 +11,7 @@ export const ProductCardOverlay = ({ product }) => {
   const handleClick = (e) => {
     e.stopPropagation();
     setAnimationTick((prev) => prev + 1);
-    addToCart({
-      id: product.id,
-      name: product.title,
-      quantity: 1,
-      availableQuantity: product.stock,
-      image: product.thumbnail,
-    });
+    addToCart(product);
   };
   return (
     <div className={styles.overlay}>

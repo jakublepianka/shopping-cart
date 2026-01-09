@@ -5,24 +5,34 @@ export const useCart = () => {
   const { cart, setCart } = useContext(CartContext);
 
   const addToCart = (product) => {
+    const shapedProduct = shapeProduct(product);
     setCart((prev) => {
       const cartMap = new Map(prev.map((item) => [item.id, item]));
-      const existing = cartMap.get(product.id);
+      const existing = cartMap.get(shapedProduct.id);
       if (existing) {
         const newQuantity = Math.min(
-          existing.quantity + product.quantity,
-          product.availableQuantity
+          existing.quantity + shapedProduct.quantity,
+          shapedProduct.availableQuantity
         );
-        cartMap.set(product.id, {
+        cartMap.set(shapedProduct.id, {
           ...existing,
           quantity: newQuantity,
         });
-      } else {
-        cartMap.set(product.id, { ...product });
-      }
+      } else cartMap.set(shapedProduct.id, { ...shapedProduct });
 
       return Array.from(cartMap.values());
     });
+  };
+
+  const shapeProduct = (product) => {
+    return {
+      id: product.id,
+      name: product.title,
+      price: product.price,
+      quantity: 1,
+      availableQuantity: product.stock,
+      image: product.thumbnail,
+    };
   };
 
   const sumQuantity = () => cart.reduce((acc, curr) => acc + curr.quantity, 0);

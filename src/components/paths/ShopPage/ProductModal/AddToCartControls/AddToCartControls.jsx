@@ -3,13 +3,7 @@ import styles from "./AddToCartControls.module.css";
 import { useAddToCartControls } from "../../../../../hooks/useAddToCartControls";
 import { useCart } from "../../../../../context/Cart/useCart";
 
-export const AddToCartControls = ({
-  id,
-  name,
-  price,
-  image,
-  availableQuantity,
-}) => {
+export const AddToCartControls = ({ product }) => {
   const { addToCart } = useCart();
   const {
     quantity,
@@ -17,19 +11,12 @@ export const AddToCartControls = ({
     incrementQuantity,
     decrementQuantity,
     handleInputChange,
-  } = useAddToCartControls({ availableQuantity });
+  } = useAddToCartControls({ availableQuantity: product.availableQuantity });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isValid) return;
-    addToCart({
-      id: id,
-      name: name,
-      price: price,
-      quantity: quantity,
-      availableQuantity: availableQuantity,
-      image: image,
-    });
+    addToCart(product);
   };
 
   return (
@@ -43,7 +30,7 @@ export const AddToCartControls = ({
         onChange={(e) => handleInputChange(e)}
         isValid={isValid}
         quantity={quantity}
-        availableQuantity={availableQuantity}
+        availableQuantity={product.availableQuantity}
       />
     </form>
   );

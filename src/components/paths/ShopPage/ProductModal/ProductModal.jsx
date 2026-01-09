@@ -39,13 +39,7 @@ export const ProductModal = ({ product, onClose }) => {
           }}
         ></Carousel>
         <div className={styles.body}>
-          <AddToCartControls
-            id={product.id}
-            name={product.title}
-            price={product.price}
-            image={product.thumbnail}
-            availableQuantity={product.stock}
-          />
+          <AddToCartControls product={product} />
 
           <section className={styles.section}>
             <h2 className={styles.sectionHeading}>Description</h2>
