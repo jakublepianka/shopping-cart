@@ -1,14 +1,18 @@
 import { Outlet } from "react-router";
 import { Header } from "./components/Header/Header.jsx";
 import { Background } from "./components/Background/Background.jsx";
+import { CartProvider } from "./context/Cart/CartProvider.jsx";
 
 function App() {
-
   return (
     <>
       <Background />
-      <Header></Header>
-      <Outlet />
+      <CartProvider>
+        <Header></Header>
+        <main>
+          <Outlet />
+        </main>
+      </CartProvider>
     </>
   );
 }
