@@ -1,11 +1,16 @@
 import { Link } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./Header.module.css";
 import bagIcon from "../../assets/icons/shopping-bag.png";
 import barsIcon from "../../assets/icons/bars-edited.png";
+import { useCart } from "../../context/Cart/useCart";
 
 export const Header = () => {
+  const { sumQuantity } = useCart();
   const [isOpen, setIsOpen] = useState(false);
+  const cartQuantity = useMemo(() => {
+    return sumQuantity();
+  }, [sumQuantity]);
 
   function handleDropdownToggle() {
     setIsOpen((status) => !status);
@@ -49,14 +54,22 @@ export const Header = () => {
               className={styles.cartIcon}
               alt="shopping bag"
             ></img>
-            <span /* number of items inside the cart */></span>
+            {cartQuantity > 0 && cartQuantity <= 99 ? (
+              <span className={styles.cartQuantity}>{cartQuantity}</span>
+            ) : cartQuantity > 99 ? (
+              <span className={styles.cartQuantity}>99+</span>
+            ) : (
+              <></>
+            )}
           </Link>
           <button
             className={styles.btn}
             onClick={handleDropdownToggle}
-            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isOpen ? "Close navigation menu" : "Open navigation menu"
+            }
           >
-            <img src={barsIcon} className={styles.navIcon}></img>
+            <img src={barsIcon} className={styles.navIcon} alt=""></img>
           </button>
           <div className={styles.navListContainer}>
             <ul className={isOpen ? styles.navListShown : styles.navListHidden}>

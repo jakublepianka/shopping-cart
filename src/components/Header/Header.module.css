@@ -1,6 +1,6 @@
 .halfOne {
   font-weight: 100;
-  color:  white;
+  color: white;
 }
 
 .halfTwo {
@@ -10,6 +10,8 @@
 
 .header {
   position: relative;
+  z-index: 999;
+  width: 100%;
   background-color: var(--dark-grey-tl);
   color: white;
   display: flex;
@@ -23,13 +25,14 @@ nav {
 }
 
 .cartLink {
+  position: relative;
   display: flex;
   align-items: center;
   order: 1;
 }
 
 .cartIcon {
-  width: 24px;
+  width: 28px;
   filter: invert(1);
   transform: translateY(-2px);
 }
@@ -45,7 +48,7 @@ nav {
   display: block;
   filter: invert(1);
   width: 36px;
-  height: 20px;
+  height: 24px;
 }
 
 .navListContainer {
@@ -57,29 +60,26 @@ nav {
   overflow: hidden;
 }
 
-.navListHidden {
-  visibility: hidden;
+.navListHidden,
+.navListShown {
   position: absolute;
   list-style: none;
   padding: 0;
   right: 0;
   bottom: 84px;
   width: calc(76px + 16px + 16px);
-  border-radius: 0 0 0 2px;
-  transform: translateY(0);
+  border-radius: 0 0 0 4px;
   background-color: var(--dark-grey-tl);
+}
+
+.navListHidden {
+  visibility: hidden;
+  transform: translateY(0);
   transition: transform 0.2s ease-out, visibility 0s linear 0.2s;
-} 
+}
 
 .navListShown {
   visibility: visible;
-  position: absolute;
-  list-style: none;
-  width: calc(76px + 16px + 16px);
-  right: 0;
-  bottom: 84px;
-  background-color: var(--dark-grey-tl);
-  border-radius: 0 0 0 2px;
   transform: translateY(100%);
   transition: transform 0.2s ease-in;
 }
@@ -90,6 +90,7 @@ nav {
   height: 42px;
   padding: 12px 0;
   text-align: center;
+  color: white;
 }
 
 @media (min-width: 600px) {
@@ -113,7 +114,7 @@ nav {
     overflow: visible;
   }
 
-  .navListShown, .navListHidden {
+  .navListHidden {
     visibility: visible;
     display: flex;
     position: relative;
@@ -131,10 +132,35 @@ nav {
 
   .navItem {
     display: flex;
-    align-items: center;    
+    align-items: center;
   }
 
   .navItem:first-child {
     padding-bottom: 0;
   }
+
+  .navLink {
+    display: flex;
+    width: 100%;
+    height: 36.8px;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+.cartQuantity {
+  display: grid;
+  font-family: 'Gilroy', sans-serif;
+  font-size: 11px;
+  position: absolute;
+  right: -8px;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  padding-top: 3px;
+  padding-left: 1px;
+  place-content: center;
+  background-color: white;
+  border-radius: 100%;
 }
