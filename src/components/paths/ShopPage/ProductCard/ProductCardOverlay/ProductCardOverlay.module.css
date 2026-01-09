@@ -5,7 +5,9 @@
 
 .productTitle {
   padding: 12px 42px 12px 12px;
-  font-size: 16px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-indent: 1px;
 }
 
 .priceLabel {
@@ -27,6 +29,33 @@
   border: none;
 }
 
+.addButton::after {
+  content: "+";
+  position: absolute;
+  left: -16px;
+  top: -16px;
+  font-size: 32px;
+  font-weight: 100;
+  opacity: 0;
+}
+
+.addButton.animate::after {
+  animation: slideFade 1s ease forwards;
+  opacity: 1;
+}
+
 .addIcon {
   width: 28px;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
 }
