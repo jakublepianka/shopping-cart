@@ -11,12 +11,12 @@ export const AddToCartControls = ({ product }) => {
     incrementQuantity,
     decrementQuantity,
     handleInputChange,
-  } = useAddToCartControls({ availableQuantity: product.availableQuantity });
+  } = useAddToCartControls({ availableQuantity: product.stock });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isValid) return;
-    addToCart(product);
+    addToCart(product, quantity);
   };
 
   return (
@@ -30,7 +30,7 @@ export const AddToCartControls = ({ product }) => {
         onChange={(e) => handleInputChange(e)}
         isValid={isValid}
         quantity={quantity}
-        availableQuantity={product.availableQuantity}
+        availableQuantity={product.stock}
       />
     </form>
   );

@@ -4,8 +4,8 @@ import { CartContext } from "./CartContext";
 export const useCart = () => {
   const { cart, setCart } = useContext(CartContext);
 
-  const addToCart = (product) => {
-    const shapedProduct = shapeProduct(product);
+  const addToCart = (product, quantity) => {
+    const shapedProduct = shapeProduct(product, quantity);
     setCart((prev) => {
       const cartMap = new Map(prev.map((item) => [item.id, item]));
       const existing = cartMap.get(shapedProduct.id);
@@ -24,12 +24,12 @@ export const useCart = () => {
     });
   };
 
-  const shapeProduct = (product) => {
+  const shapeProduct = (product, quantity) => {
     return {
       id: product.id,
       name: product.title,
       price: product.price,
-      quantity: 1,
+      quantity: quantity,
       availableQuantity: product.stock,
       image: product.thumbnail,
     };

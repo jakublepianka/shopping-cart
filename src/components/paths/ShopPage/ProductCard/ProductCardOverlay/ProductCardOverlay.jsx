@@ -11,7 +11,7 @@ export const ProductCardOverlay = ({ product }) => {
   const handleClick = (e) => {
     e.stopPropagation();
     setAnimationTick((prev) => prev + 1);
-    addToCart(product);
+    addToCart(product, 1);
   };
   return (
     <div className={styles.overlay}>
