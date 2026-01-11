@@ -24,8 +24,9 @@ export const ProductCardOverlay = ({ product }) => {
           animationTick ? styles.animate : undefined
         }`}
         onClick={handleClick}
+        aria-label={`Add ${product.title} to cart`}
       >
-        <img src={addToCartIcon} className={styles.addIcon}></img>
+        <img src={addToCartIcon} className={styles.addIcon} alt=""></img>
       </button>
     </div>
   );

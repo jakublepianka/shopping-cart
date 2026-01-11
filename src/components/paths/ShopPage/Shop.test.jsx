@@ -7,6 +7,7 @@ vi.mock("../../../context/Products/useProducts.js", () => ({
 }));
 
 import { Shop } from "./Shop.jsx";
+import userEvent from "@testing-library/user-event";
 
 describe("Shop component", () => {
   const emptyProducts = { products: [] };
@@ -42,10 +43,33 @@ describe("Shop component", () => {
   });
 
   it("Shows product cards when products are fetched", () => {
-    mockUseProducts.mockReturnValue(productsFixture);
+    const { products } = productsFixture;
+    mockUseProducts.mockReturnValue({products});
     render(<Shop />);
 
-    const productCards = screen.queryAllByRole("listitem");
-    expect(productCards).toHaveLength(2);
+    const productCardOne = screen.getByRole("button", {
+      name: `${products[0].title}, $${products[0].price}`,
+    });
+    const productCardTwo = screen.getByRole("button", {
+      name: `${products[1].title}, $${products[1].price}`,
+    });
+
+    expect(productCardOne).toBeInTheDocument();
+    expect(productCardTwo).toBeInTheDocument();
+  });
+
+  it("Shows ProductModal on ProductCard click", async () => {
+    const { products } = productsFixture;
+    mockUseProducts.mockReturnValue({products});
+    const user = userEvent.setup();
+    render(<Shop />);
+
+    const productCard = screen.getByRole("button", {
+      name: `${products[0].title}, $${products[0].price}`,
+    });
+
+    await user.click(productCard);
+
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
   });
 });
