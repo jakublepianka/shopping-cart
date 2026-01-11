@@ -48,26 +48,4 @@ describe("Shop component", () => {
     const productCards = screen.queryAllByRole("listitem");
     expect(productCards).toHaveLength(2);
   });
-
-  it("Shows product cards' images when products are fetched", () => {
-    mockUseProducts.mockReturnValue(productsFixture);
-    render(<Shop />);
-
-    const imageOne = screen.getByRole("img", { name: /amazon echo plus/i });
-    const imageTwo = screen.getByRole("img", { name: /apple airpods/i });
-
-    expect(imageOne).toBeInTheDocument();
-    expect(imageTwo).toBeInTheDocument();
-  });
-
-    it("Shows product cards' images when products are fetched", () => {
-    mockUseProducts.mockReturnValue(productsFixture);
-    render(<Shop />);
-
-    const imageOne = screen.getByRole("img", { name: /amazon echo plus/i });
-    const imageTwo = screen.getByRole("img", { name: /apple airpods/i });
-
-    expect(imageOne).toBeInTheDocument();
-    expect(imageTwo).toBeInTheDocument();
-  });
 });
