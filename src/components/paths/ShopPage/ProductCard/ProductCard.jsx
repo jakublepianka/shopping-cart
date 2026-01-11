@@ -5,7 +5,11 @@ export const ProductCard = ({ product, onOpen }) => {
   return (
     <li className={styles.productCard} onClick={onOpen}>
       <article>
-        <img src={product.thumbnail} className={styles.thumbnail}></img>
+        <img
+          src={product.thumbnail}
+          className={styles.thumbnail}
+          alt={product.title}
+        ></img>
         <ProductCardOverlay product={product} />
         {/* absolute overlay with:
       1. name
