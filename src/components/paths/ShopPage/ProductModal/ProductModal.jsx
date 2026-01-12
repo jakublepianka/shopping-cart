@@ -13,8 +13,17 @@ export const ProductModal = ({ product, onClose }) => {
 
   return (
     <>
-      <div className={styles.modalBackdrop}></div>
-      <div className={styles.modalCard} role="dialog" aria-modal="true">
+      <div
+        className={styles.modalBackdrop}
+        onClick={onClose}
+        data-testid="modal-backdrop"
+      ></div>
+      <div
+        className={styles.modalCard}
+        role="dialog"
+        aria-modal="true"
+        onClick={(e) => e.stopPropagation()}
+      >
         <h1 className={styles.productName}>{product.title}</h1>
         <button
           onClick={onClose}

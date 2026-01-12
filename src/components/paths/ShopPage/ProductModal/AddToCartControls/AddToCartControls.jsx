@@ -20,7 +20,11 @@ export const AddToCartControls = ({ product }) => {
   };
 
   return (
-    <form className={styles.addToCartForm} onSubmit={handleSubmit}>
+    <form
+      className={styles.addToCartForm}
+      onSubmit={handleSubmit}
+      aria-label="Add to cart"
+    >
       <button type="submit" className={styles.submitToCart}>
         Add to cart
       </button>
