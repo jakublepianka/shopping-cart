@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { CartContext } from "./CartContext";
 
 export const useCart = () => {
@@ -35,9 +35,18 @@ export const useCart = () => {
     };
   };
 
-  const sumQuantity = () => cart.reduce((acc, curr) => acc + curr.quantity, 0);
+  const sumQuantity = useMemo(
+    () => cart.reduce((acc, curr) => acc + curr.quantity, 0),
+    [cart]
+  );
 
-  const sumPrice = () => cart.reduce((acc, curr) => acc + curr.price, 0);
+  const sumPrice = useMemo(
+    () =>
+      cart
+        .reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
+        .toFixed(2),
+    [cart]
+  );
 
   return {
     cart,

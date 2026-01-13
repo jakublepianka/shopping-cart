@@ -6,11 +6,8 @@ import barsIcon from "../../assets/icons/bars-edited.png";
 import { useCart } from "../../context/Cart/useCart";
 
 export const Header = () => {
-  const { sumQuantity } = useCart();
+  const { sumQuantity: cartQuantity } = useCart();
   const [isOpen, setIsOpen] = useState(false);
-  const cartQuantity = useMemo(() => {
-    return sumQuantity();
-  }, [sumQuantity]);
 
   function handleDropdownToggle() {
     setIsOpen((status) => !status);
