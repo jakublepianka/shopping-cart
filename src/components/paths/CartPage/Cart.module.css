@@ -1,12 +1,62 @@
-.cartContainer {
-  width: 100%;
-  height: calc(100% - 60.8px);
-}
-
 .cartHeading {
   padding: 12px 16px 16px;
   font-size: 20px;
   letter-spacing: 2px;
   text-indent: 2px;
   font-weight: 100;
+}
+
+.cartListSection {
+  padding-bottom: 32px;
+}
+
+.cartList {
+  background-color: white;
+  border-radius: 2px;
+  margin: 0 16px;
+}
+
+.emptyCart {
+  display: grid;
+  place-content: center;
+  height: 400px;
+  background-color: white;
+  border-radius: 2px;
+  margin: 0 16px;
+}
+
+.shopLink {
+  position: relative;
+  display: block;
+  margin: 32px auto 0;
+  padding: 8px 4px;
+  font-size: 18px;
+  color: black;
+  word-spacing: -4px;
+  text-indent: 4px;
+  border: 2px solid var(--tealish);
+  border-radius: 2px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shopLink:focus-visible {
+  outline: none;
+}
+
+.shopLink::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background-color: var(--tealish);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.shopLink:hover::after,
+.shopLink:focus::after,
+.shopLink:focus-visible::after {
+  transform: scaleX(1);
 }

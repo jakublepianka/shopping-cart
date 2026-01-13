@@ -4,37 +4,37 @@ import { CartInputControls } from "../../../CartInputControls/CartInputControls"
 import { useAddToCartControls } from "../../../../hooks/useAddToCartControls";
 
 export const CartItemCard = ({
-  id,
   name,
   price,
   quantity,
   availableQuantity,
   image,
 }) => {
-  const { isValid } = useAddToCartControls({
-    availableQuantity: availableQuantity,
-  });
+  const { isValid } = useAddToCartControls({ availableQuantity });
 
   const total = (price * quantity).toFixed(2);
-  
-  return (
-    <li>
-      <div>
-        <img src={image} alt=""></img>
-      </div>
-      <h1>{name}</h1>
 
-      <div>
-        <span>${total}</span>
-        <CartInputControls
-          isValid={isValid}
-          quantity={quantity}
-          availableQuantity={availableQuantity}
-        />
-      </div>
-      <button>
-        <img src={trashIcon} alt="" />
-      </button>
-    </li>
+  return (
+    <>
+      <li className={styles.itemCard}>
+        <div className={styles.imgAndTitle}>
+          <img src={image} className={styles.thumbnail} alt=""></img>
+          <h2 className={styles.name}>{name}</h2>
+        </div>
+
+        <div className={styles.totalAndControls}>
+          <h3 className={styles.total}>$ {total}</h3>
+          <CartInputControls
+            isValid={isValid}
+            quantity={quantity}
+            availableQuantity={availableQuantity}
+          />
+        </div>
+        <button className={styles.deleteButton}>
+          <img src={trashIcon} className={styles.trashIcon} alt="" />
+        </button>
+      </li>
+      <hr />
+    </>
   );
 };

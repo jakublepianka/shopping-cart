@@ -1,0 +1,56 @@
+.itemCard {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px 8px 12px;
+}
+
+.imgAndTitle {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.thumbnail {
+  display: block;
+  width: 128px;
+  object-fit: cover;
+}
+
+.name {
+  flex: 1;
+  margin: auto 0;
+  padding: 0px 44px 16px 0px;
+}
+
+.totalAndControls {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  padding: 0 16px 0 24px;
+}
+
+.total {
+  flex: 1;
+  margin: auto 0 7px;
+  letter-spacing: 1px;
+  text-indent: 1px;
+}
+
+.deleteButton {
+  position: absolute;
+  right: 12px;
+  bottom: 50%;
+  transform: translateY(-12%);
+  border: none;
+  background-color: transparent;
+}
+
+.trashIcon {
+  display: block;
+  width: 32px;
+}
+
+@media (min-width: 300px) {
+  
+}
