@@ -1,0 +1,19 @@
+.cartSummary {
+  padding: 16px;
+}
+
+.summaryHeading {
+  padding-left: 24px;
+}
+
+.summarySubList {
+  width: fit-content;
+  margin-left: auto;
+}
+.summaryContentHeading {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 4px;
+}
+
