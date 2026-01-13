@@ -6,22 +6,34 @@ export const useCart = () => {
 
   const addToCart = (product, quantity) => {
     const shapedProduct = shapeProduct(product, quantity);
-    setCart((prev) => {
-      const cartMap = new Map(prev.map((item) => [item.id, item]));
-      const existing = cartMap.get(shapedProduct.id);
-      if (existing) {
-        const newQuantity = Math.min(
-          existing.quantity + shapedProduct.quantity,
-          shapedProduct.availableQuantity
-        );
-        cartMap.set(shapedProduct.id, {
-          ...existing,
-          quantity: newQuantity,
-        });
-      } else cartMap.set(shapedProduct.id, { ...shapedProduct });
+    setCart((prev) => cartSetter(prev, shapedProduct));
+  };
 
-      return Array.from(cartMap.values());
-    });
+  const modifyCartQuantity = (product, quantity) => {
+    setCart((prev) => cartSetter(prev, product, quantity));
+  };
+
+  const deleteFromCart = (id) => {
+    setCart(prev => prev.filter(item => item.id !== id));
+  }
+
+  const cartSetter = (prev, currProduct, modifiedQuantity = 0) => {
+    const cartMap = new Map(prev.map((item) => [item.id, item]));
+    const existing = cartMap.get(currProduct.id);
+    if (existing) {
+      const newQuantity = Math.min(
+        modifiedQuantity
+          ? currProduct.quantity
+          : existing.quantity + currProduct.quantity,
+        currProduct.availableQuantity
+      );
+      cartMap.set(currProduct.id, {
+        ...existing,
+        quantity: newQuantity,
+      });
+    } else cartMap.set(currProduct.id, { ...currProduct });
+    
+    return Array.from(cartMap.values());
   };
 
   const shapeProduct = (product, quantity) => {
@@ -51,6 +63,8 @@ export const useCart = () => {
   return {
     cart,
     addToCart,
+    modifyCartQuantity,
+    deleteFromCart,
     sumQuantity,
     sumPrice,
   };

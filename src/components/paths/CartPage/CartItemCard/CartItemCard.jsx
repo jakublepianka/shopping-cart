@@ -9,6 +9,7 @@ export const CartItemCard = ({
   quantity,
   availableQuantity,
   image,
+  onDelete,
 }) => {
   const { isValid } = useAddToCartControls({ availableQuantity });
 
@@ -30,7 +31,7 @@ export const CartItemCard = ({
             availableQuantity={availableQuantity}
           />
         </div>
-        <button className={styles.deleteButton}>
+        <button className={styles.deleteButton} onClick={onDelete} aria-label="Remove from cart">
           <img src={trashIcon} className={styles.trashIcon} alt="" />
         </button>
       </li>
