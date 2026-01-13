@@ -25,12 +25,12 @@ export const AddToCartControls = ({ product }) => {
       onSubmit={handleSubmit}
       aria-label="Add to cart"
     >
-      <button type="submit" className={styles.submitToCart}>
+      <button type="submit" className={styles.submitToCart} disabled={!isValid}>
         Add to cart
       </button>
       <CartInputControls
-        onAdd={incrementQuantity}
-        onSubtract={decrementQuantity}
+        onIncrement={incrementQuantity}
+        onDecrement={decrementQuantity}
         onChange={(e) => handleInputChange(e)}
         isValid={isValid}
         quantity={quantity}
