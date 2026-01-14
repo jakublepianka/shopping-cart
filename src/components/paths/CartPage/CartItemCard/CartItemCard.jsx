@@ -16,7 +16,7 @@ export const CartItemCard = ({
   const total = (price * (cartQuantity || 1)).toFixed(2);
 
   return (
-    <li className={styles.itemCard}>
+    <li className={styles.itemCard} tabIndex={0}>
       <div className={styles.imgAndTitle}>
         <img src={image} className={styles.thumbnail} alt=""></img>
         <h2 className={styles.name}>{name}</h2>
@@ -24,7 +24,7 @@ export const CartItemCard = ({
 
       <div className={styles.totalAndControls}>
         <h3 className={styles.total}>$ {total}</h3>
-        <form>
+        <form aria-label="Change quantity">
           <CartInputControls
             onIncrement={onIncrement}
             onDecrement={onDecrement}
@@ -41,7 +41,7 @@ export const CartItemCard = ({
       <button
         className={styles.deleteButton}
         onClick={onDelete}
-        aria-label="Remove from cart"
+        aria-label={`Remove ${name} from cart`}
       >
         <img src={trashIcon} className={styles.trashIcon} alt="" />
       </button>
