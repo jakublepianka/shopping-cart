@@ -1,21 +1,25 @@
 import { useState } from "react";
 
-export const useAddToCartControls = ({ availableQuantity }) => {
-  const [quantity, setQuantity] = useState(1);
+export const useAddToCartControls = ({ availableQuantity, initialQuantity = 1 }) => {
+  console.log("Initial Quantity " + initialQuantity);
+  const [quantity, setQuantity] = useState(initialQuantity);
   const [isValid, setIsValid] = useState(true);
+  // look into isValid based component behavior
 
   const incrementQuantity = () =>
     setQuantity((prev) => {
       const num = parseInput(prev);
-      validate(num);
-      return num <= availableQuantity ? num + 1 : num;
+      const nextNum = num < availableQuantity ? num + 1 : num;
+      validate(nextNum);
+      return nextNum
     });
 
   const decrementQuantity = () =>
     setQuantity((prev) => {
       const num = parseInput(prev);
-      validate(num);
-      return num > 1 ? num - 1 : num;
+      const nextNum = num > 1 ? num - 1 : num;
+      validate(nextNum);
+      return nextNum;
     });
 
   const handleInputChange = (e) => {

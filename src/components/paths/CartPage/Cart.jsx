@@ -5,7 +5,7 @@ import { CartSummary } from "./CartSummary/CartSummary";
 import { Link } from "react-router";
 
 export const Cart = () => {
-  const { cart, deleteFromCart, sumQuantity, sumPrice } = useCart();
+  const { cart, deleteFromCart, modifyCartQuantity, sumQuantity, sumPrice } = useCart();
 
   return (
     <>
@@ -16,12 +16,14 @@ export const Cart = () => {
             {cart.map((product) => (
               <CartItemCard
                 key={product.id}
+                id={product.id}
                 name={product.name}
                 price={product.price}
-                quantity={product.quantity}
+                cartQuantity={product.quantity}
                 availableQuantity={product.availableQuantity}
                 image={product.image}
                 onDelete={() => deleteFromCart(product.id)}
+                onModify={modifyCartQuantity}
               />
             ))}
             <CartSummary quantity={sumQuantity} price={sumPrice} />
