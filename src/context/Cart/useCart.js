@@ -14,8 +14,8 @@ export const useCart = () => {
   };
 
   const deleteFromCart = (id) => {
-    setCart(prev => prev.filter(item => item.id !== id));
-  }
+    setCart((prev) => prev.filter((item) => item.id !== id));
+  };
 
   const cartSetter = (prev, currProduct, modifiedQuantity = 0) => {
     const cartMap = new Map(prev.map((item) => [item.id, item]));
@@ -32,9 +32,57 @@ export const useCart = () => {
         quantity: newQuantity,
       });
     } else cartMap.set(currProduct.id, { ...currProduct });
-    
+
     return Array.from(cartMap.values());
   };
+
+  const incrementCartItem = (id) => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity: Math.min(
+                deNaNize(item.quantity) + 1,
+                item.availableQuantity
+              ),
+            }
+          : item
+      )
+    );
+  };
+
+  const decrementCartItem = (id) => {
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity: Math.max(deNaNize(item.quantity) - 1, 1),
+            }
+          : item
+      )
+    );
+  };
+
+  const setCartItemQuantity = (id, newQuantity) => {
+    const newNum = deNaNize(newQuantity)
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity: newNum ? Math.max(
+                1,
+                Math.min(newNum, item.availableQuantity)
+              ) : "",
+            }
+          : item
+      )
+    );
+  };
+
+  const deNaNize = (val) => (isNaN(val) ? 0 : val);
 
   const shapeProduct = (product, quantity) => {
     return {
@@ -48,14 +96,14 @@ export const useCart = () => {
   };
 
   const sumQuantity = useMemo(
-    () => cart.reduce((acc, curr) => acc + curr.quantity, 0),
+    () => cart.reduce((acc, curr) => acc + (curr.quantity || 1), 0),
     [cart]
   );
 
   const sumPrice = useMemo(
     () =>
       cart
-        .reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
+        .reduce((acc, curr) => acc + curr.price * (curr.quantity || 1), 0)
         .toFixed(2),
     [cart]
   );
@@ -64,6 +112,9 @@ export const useCart = () => {
     cart,
     addToCart,
     modifyCartQuantity,
+    incrementCartItem,
+    decrementCartItem,
+    setCartItemQuantity,
     deleteFromCart,
     sumQuantity,
     sumPrice,

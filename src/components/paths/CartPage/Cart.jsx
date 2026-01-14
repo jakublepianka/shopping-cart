@@ -5,7 +5,15 @@ import { CartSummary } from "./CartSummary/CartSummary";
 import { Link } from "react-router";
 
 export const Cart = () => {
-  const { cart, deleteFromCart, modifyCartQuantity, sumQuantity, sumPrice } = useCart();
+  const {
+    cart,
+    deleteFromCart,
+    incrementCartItem,
+    decrementCartItem,
+    setCartItemQuantity,
+    sumQuantity,
+    sumPrice,
+  } = useCart();
 
   return (
     <>
@@ -23,7 +31,11 @@ export const Cart = () => {
                 availableQuantity={product.availableQuantity}
                 image={product.image}
                 onDelete={() => deleteFromCart(product.id)}
-                onModify={modifyCartQuantity}
+                onIncrement={() => incrementCartItem(product.id)}
+                onDecrement={() => decrementCartItem(product.id)}
+                onQuantityChange={(value) =>
+                  setCartItemQuantity(product.id, value)
+                }
               />
             ))}
             <CartSummary quantity={sumQuantity} price={sumPrice} />
