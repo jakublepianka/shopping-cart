@@ -1,15 +1,17 @@
 .cartSummary {
-  padding: 16px;
+  background-color: white;
+  padding: 16px 40px;
 }
 
 .summaryHeading {
-  padding-left: 24px;
+  font-size: 22px;
 }
 
 .summarySubList {
   width: fit-content;
   margin-left: auto;
 }
+
 .summaryContentHeading {
   display: flex;
   justify-content: space-between;

@@ -11,9 +11,10 @@
 }
 
 .cartList {
-  background-color: white;
+  display: grid;
   border-radius: 2px;
   margin: 0 16px;
+  gap: 8px;
 }
 
 .emptyCart {

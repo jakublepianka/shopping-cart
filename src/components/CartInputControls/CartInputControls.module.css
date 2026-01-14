@@ -44,6 +44,7 @@
   border-radius: 2px;
   padding: 4px 8px;
   animation: slideIn 0.25s ease alternate;
+  z-index: 1;
 }
 
 .invalidMsg::before {
