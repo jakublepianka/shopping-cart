@@ -23,11 +23,10 @@ export const useAddToCartControls = ({ availableQuantity }) => {
 
   const handleInputChange = (input) => {
     validate(input);
-    setQuantity((prev) => {
+    const newVal = Math.max(1, Math.min(input, availableQuantity));
+    setQuantity(() => {
       if (input === "" || input <= "0") return "";
-      if (input > 0 && input <= availableQuantity)
-        return input
-      return prev;
+      return newVal
     });
   };
 
