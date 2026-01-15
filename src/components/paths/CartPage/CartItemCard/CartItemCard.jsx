@@ -18,7 +18,7 @@ export const CartItemCard = ({
   return (
     <li className={styles.itemCard} tabIndex={0}>
       <div className={styles.imgAndTitle}>
-        <img src={image} className={styles.thumbnail} alt=""></img>
+        <img src={image} className={styles.thumbnail} alt={name}></img>
         <h2 className={styles.name}>{name}</h2>
       </div>
 

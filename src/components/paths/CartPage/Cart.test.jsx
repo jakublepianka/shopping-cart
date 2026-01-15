@@ -67,6 +67,30 @@ describe("Cart component", () => {
     expect(cardTwoHeading).toBeInTheDocument();
   });
 
+  it("passes correct props to CartItemCard", () => {
+    const cardObj = cartFixture.cart[0];
+    mockUseCart.mockReturnValue({ cart: [cardObj] });
+    render(<Cart />);
+
+    const img = screen.getByRole("img", { name: "Amazon Echo Plus" });
+    const heading = screen.getByRole("heading", {
+      level: 2,
+      name: "Amazon Echo Plus",
+    });
+    const price = screen.getByRole("heading", {
+      level: 3,
+      name: /399.96/i,
+    });
+    const quantity = screen.getByRole("spinbutton", {
+      value: cardObj.quantity,
+    });
+
+    expect(img.src).toContain("#");
+    expect(heading).toBeInTheDocument();
+    expect(price).toBeInTheDocument();
+    expect(quantity).toBeInTheDocument();
+  });
+
   it("Deletes cart item card when delete button is clicked", async () => {
     const user = userEvent.setup();
     let currentCart = [...cartFixture.cart];
