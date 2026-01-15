@@ -29,6 +29,8 @@ describe("Cart component", () => {
         image: "#",
       },
     ],
+    sumQuantity: 5,
+    sumPrice: 529.95,
   };
 
   it("renders info with link to shop when cart is empty", () => {
@@ -92,5 +94,37 @@ describe("Cart component", () => {
         name: `Remove ${cartFixture.cart[1].name} from cart`,
       })
     ).not.toBeInTheDocument();
+  });
+
+  it("passes correct props to CartSummary when cart has items", () => {
+    mockUseCart.mockReturnValue(cartFixture);
+    render(<Cart />);
+
+    const quantityHeading = screen.getByRole("heading", {
+      level: 3,
+      name: "Items: 5",
+    });
+    const priceHeading = screen.getByRole("heading", {
+      level: 3,
+      name: "Amount: $ 529.95",
+    });
+    expect(quantityHeading).toBeInTheDocument();
+    expect(priceHeading).toBeInTheDocument();
+  });
+
+  it("Doesn't render cart summary when cart is empty", () => {
+    mockUseCart.mockReturnValue(emptyCart);
+    render(
+      <MemoryRouter>
+        <Cart />
+      </MemoryRouter>
+    );
+
+    const totalHeading = screen.queryByRole("heading", {
+      level: 2,
+      name: "Total",
+    });
+
+    expect(totalHeading).not.toBeInTheDocument();
   });
 });
