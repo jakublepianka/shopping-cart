@@ -21,14 +21,12 @@ export const useAddToCartControls = ({ availableQuantity }) => {
       return nextNum;
     });
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    validate(value);
+  const handleInputChange = (input) => {
+    validate(input);
     setQuantity((prev) => {
-      if (value === "" || value <= "0") return "";
-      const num = parseInt(value);
-      if (/^$|^[1-9][0-9]*$/.test(num) && num > 0 && num <= availableQuantity)
-        return num;
+      if (input === "" || input <= "0") return "";
+      if (input > 0 && input <= availableQuantity)
+        return input
       return prev;
     });
   };

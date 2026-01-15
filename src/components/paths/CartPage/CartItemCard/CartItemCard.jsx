@@ -28,8 +28,8 @@ export const CartItemCard = ({
           <CartInputControls
             onIncrement={onIncrement}
             onDecrement={onDecrement}
-            onChange={(e) => {
-              const value = parseInt(e.target.value);
+            onChange={(val) => {
+              const value = parseInt(val);
               onQuantityChange(value);
             }}
             isValid={cartQuantity <= availableQuantity && cartQuantity > 0}

@@ -31,7 +31,7 @@ export const AddToCartControls = ({ product }) => {
       <CartInputControls
         onIncrement={incrementQuantity}
         onDecrement={decrementQuantity}
-        onChange={(e) => handleInputChange(e)}
+        onChange={(val) => handleInputChange(val)}
         isValid={isValid}
         quantity={quantity}
         availableQuantity={product.stock}

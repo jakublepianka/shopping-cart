@@ -54,6 +54,18 @@ describe("CartInputControls component", () => {
     expect(onChange).toHaveBeenCalledOnce();
   });
 
+  it("calls onChange when input is empty and unfocused", async () => {
+    const user = userEvent.setup();
+    render(<CartInputControls quantity={""} onChange={onChange} />);
+
+    const nonInputElement = screen.getByTestId("cart-input-controls");
+    const input = screen.getByRole("spinbutton", { name: "Quantity" });
+    await user.click(input);
+    expect(input).toHaveTextContent("");
+    await user.click(nonInputElement);
+    expect(onChange).toHaveBeenCalledOnce();
+  });
+
   it("renders validation alert when quantity is invalid", () => {
     render(<CartInputControls isValid={false} />);
 

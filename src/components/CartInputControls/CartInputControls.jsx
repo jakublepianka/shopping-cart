@@ -26,7 +26,8 @@ export const CartInputControls = ({
         min={1}
         max={availableQuantity}
         value={quantity}
-        onChange={(e) => onChange(e)}
+        onChange={(e) => onChange(e.target.value)}
+        onBlur={(e) => quantity === "" && onChange(e.target.min)}
         aria-label="Quantity"
         aria-describedby={!isValid ? "quantity-error" : undefined}
         aria-invalid={!isValid}
