@@ -24,7 +24,7 @@ export const CartItemCard = ({
 
       <div className={styles.totalAndControls}>
         <h3 className={styles.total}>$ {total}</h3>
-        <form aria-label="Change quantity">
+        <form aria-label="Change quantity" onSubmit={(e) => e.preventDefault()}>
           <CartInputControls
             onIncrement={onIncrement}
             onDecrement={onDecrement}
