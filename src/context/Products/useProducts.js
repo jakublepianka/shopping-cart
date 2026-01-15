@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { ProductDataContext } from "./ProductDataContext";
 
 export const useProducts = () => {
-  const context = useContext(ProductDataContext)
-  if (!context) {
+  const products = useContext(ProductDataContext)
+  if (!products) {
     throw new Error("ProductDataContext is null")
   }
-  return context;
+  return products;
 };
