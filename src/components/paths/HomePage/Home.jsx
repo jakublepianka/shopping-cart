@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { Carousel } from "../../Carousel/Carousel";
-import { useProducts } from "../../../context/useProducts";
+import { useProducts } from "../../../context/Products/useProducts";
 import styles from "./Home.module.css";
 
 export const Home = () => {
@@ -28,8 +28,12 @@ export const Home = () => {
         </div>
       </div>
       <div className={styles.homeMainTwo}>
-        <h1>This is a second part</h1>
-        <Carousel images={images} carouselOptions={carouselOptions}></Carousel>
+          <Carousel
+            images={images}
+            showLabel={true}
+            isLink={true}
+            carouselOptions={carouselOptions}
+          ></Carousel>
       </div>
     </>
   );

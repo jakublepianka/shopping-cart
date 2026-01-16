@@ -38,6 +38,7 @@
   word-spacing: -4px;
   text-indent: 4px;
   border: 2px solid var(--tealish);
+  border-radius: 2px;
   overflow: hidden;
 }
 

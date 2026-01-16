@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Carousel } from "./Carousel.jsx";
+import { MemoryRouter } from "react-router";
 
 describe("Carousel component", () => {
   it("Informs of lack of available images to display", () => {
@@ -43,5 +44,21 @@ describe("Carousel component", () => {
     expect(prevButton).toBeInTheDocument();
     expect(nextButton).toBeInTheDocument();
     expect(goToButtons).toHaveLength(2);
+  });
+
+  it("Shows label when showLabel prop is true", () => {
+    render(<Carousel showLabel={true} images={["#", "#"]} />);
+    const label = screen.getByRole("heading", { level: 1, name: "Top Picks" });
+    expect(label).toBeInTheDocument();
+  });
+
+  it("wraps ImageList in Link to shop when isLink is true", () => {
+    render(
+      <MemoryRouter>
+        <Carousel isLink={true} images={["#", "#"]} />
+      </MemoryRouter>
+    );
+    const link = screen.getByRole("link", { name: "Shop" });
+    expect(link).toBeInTheDocument();
   });
 });

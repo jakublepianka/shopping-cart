@@ -9,6 +9,28 @@
   aspect-ratio: 1/1;
 }
 
+.label {
+  position: absolute;
+  font-weight: 600;
+  background-color: var(--tealish);
+  width: 72px;
+  height: 72px;
+  text-align: center;
+  padding: 8px;
+  left: 8px;
+  top: 8px;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.textWrap {
+  position: absolute;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-indent: 1px;
+  transform: translate(-5px, 4px) rotate(-12deg);
+}
+
 .view {
   position: absolute;
   inset: 0;
@@ -61,14 +83,18 @@
 .goToButtonsContainer {
   position: absolute;
   display: flex;
+  justify-content: center;
+  align-items: flex-end;
   left: 50%;
-  bottom: 8px;
+  bottom: 0;
   transform: translateX(-50%);
   column-gap: 32px;
+  width: 100%;
+  height: 44px;
+  padding: 8px;
 }
 
 .goToButtonWrapper {
-  border: 1px solid black;
   border-radius: 100%;
 }
 
@@ -81,8 +107,8 @@
 .goToButtonCurrent {
   display: block;
   background-color: black;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   border: none;
   border-radius: 100%;
 }
@@ -94,7 +120,7 @@
 
 .goToButton {
   position: relative;
-  opacity: 0;
+  opacity: 0.5;
   transition: opacity 0.5s ease;
 }
 

@@ -1,4 +1,5 @@
 import styles from "./Carousel.module.css";
+import { Link } from "react-router";
 import { useCarousel } from "./hooks/useCarousel";
 import { ImageList } from "./ImageList/ImageList";
 import { Overlay } from "./Overlay/Overlay";
@@ -8,12 +9,16 @@ const defaultClassNames = {
   carouselSection: styles.carouselSection,
   view: styles.view,
   emptyMsg: styles.emptyMsg,
+  label: styles.label,
+  textWrap: styles.textWrap,
 };
 
 export const Carousel = ({
   images = [],
   carouselOptions,
   showSideNav,
+  showLabel = false,
+  isLink = false,
   carouselClassNames = {},
   imageListClassNames,
   overlayClassNames,
@@ -38,15 +43,33 @@ export const Carousel = ({
           className={classes.carouselSection}
           aria-label="Product images"
         >
+          {showLabel && (
+            <div className={classes.label}>
+              <h1 className={classes.textWrap}>Top Picks</h1>
+            </div>
+          )}
           <div className={classes.view}></div>
-          <ImageList
-            images={modifiedImageList}
-            onTransitionStart={onTransitionStart}
-            onTransitionEnd={onTransitionEnd}
-            listRef={listRef}
-            offset={offset}
-            classNames={imageListClassNames}
-          ></ImageList>
+          {isLink ? (
+            <Link to="/shop" aria-label="Shop">
+              <ImageList
+                images={modifiedImageList}
+                onTransitionStart={onTransitionStart}
+                onTransitionEnd={onTransitionEnd}
+                listRef={listRef}
+                offset={offset}
+                classNames={imageListClassNames}
+              ></ImageList>
+            </Link>
+          ) : (
+            <ImageList
+              images={modifiedImageList}
+              onTransitionStart={onTransitionStart}
+              onTransitionEnd={onTransitionEnd}
+              listRef={listRef}
+              offset={offset}
+              classNames={imageListClassNames}
+            ></ImageList>
+          )}
           {images.length === 0 ? (
             <span className={classes.emptyMsg}>No available images</span>
           ) : (
