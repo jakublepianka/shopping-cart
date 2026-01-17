@@ -6,7 +6,14 @@
 }
 
 .homeMainTwo {
-  height: calc(100% + 60.8px);
+  position: relative;
+  height: calc(100% + var(--header-height));
+}
+
+.homeMainTwoContent {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
 }
 
 .headingContainer {
@@ -14,11 +21,11 @@
   padding: 15% 8px;
   background-color: var(--yellowish);
   transform: skew(0, -15deg);
-  box-shadow: 0 3px 15px -3px rgb(0, 0, 0, 0.5);
+  box-shadow: 0 3px 7px -3px rgb(0, 0, 0, 0.5);
 }
 
 .mainHeading {
-  font-size: 52px;
+  font-size: clamp(32px, 15dvw, 52px);
   letter-spacing: -1px;
   line-height: 0.9;
   word-spacing: 8px;
@@ -26,10 +33,17 @@
   transform: skew(0, 15deg) translateY(6px);
 }
 
+.subHeading {
+  font-family: 'InputMono-Thin', monospace;
+  font-size: clamp(18px, 5dvw, 22px);
+  margin: 24px 8px 20px;
+  transform: skew(0, 15deg);
+}
+
 .shopLink {
   position: relative;
   display: block;
-  margin: 32px auto 0;
+  margin: 0 auto;
   padding: 8px 4px;
   max-width: 140px;
   font-size: 18px;
@@ -61,4 +75,141 @@
 .shopLink:focus::after,
 .shopLink:focus-visible::after {
   transform: scaleX(1);
+}
+
+.brandStatements {
+  --phrase-width: clamp(290px, 80dvw, 400px);
+  --box-width: clamp(145px, 40dvw, 200px);
+  --font-size: clamp(40px, calc(9dvw), 50px);
+  --phrase-offset: 16px;
+  --box-offset: calc(var(--phrase-offset)/2);
+  top: calc(100dvw);
+  width: 100%;
+  min-height: 275px;
+}
+
+.statementsSection {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.statementContainer {
+  position: relative;
+}
+
+.boxOne,
+.boxTwo {
+  position: absolute;
+  background-color: var(--yellowish);
+  width: var(--box-width);
+  height: calc(100% - 32px);
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.boxOne {
+  top: 50%;
+  right: var(--box-offset);
+  transform: translateY(-50%);
+}
+
+.boxTwo {
+  top: 50%;
+  left: var(--box-offset);
+  transform: translateY(-50%);
+}
+
+.phraseOneBase,
+.phraseTwoBase,
+.phraseOneInverted,
+.phraseTwoInverted {
+  position: absolute;
+  bottom: 50%;
+  width: max-content;
+  transform: translateY(50%);
+  z-index: 3;
+  font-size: var(--font-size);
+  letter-spacing: 2px;
+  text-indent: 2px;
+  white-space: nowrap;
+}
+
+.phraseOneBase,
+.phraseOneInverted {
+  text-align: right;
+  right: var(--phrase-offset);
+}
+
+.phraseTwoBase,
+.phraseTwoInverted {
+  text-align: left;
+  left: var(--phrase-offset);
+}
+
+.phraseOneBase {
+  color: #82d6d7;
+  text-shadow: 0 0.03em 0.08em rgba(0, 0, 0, 0.12);
+  clip-path: inset(0 0 0 calc(var(--phrase-width) - calc(var(--box-width) + var(--font-size) - var(--box-offset))));
+}
+
+.phraseOneInverted {
+  color: var(--yellowish);
+  text-shadow: 0 0.03em 0.08em rgba(0, 0, 0, 0.5);
+  clip-path: inset(0 calc(var(--phrase-width) - calc(var(--box-width) + var(--box-offset))) 0 0);
+}
+
+.phraseTwoBase {
+  color: #82d6d7;
+  text-shadow: 0 0.03em 0.08em rgba(0, 0, 0, 0.12);
+  clip-path: inset(0 calc(var(--phrase-width) - calc(var(--box-width) + var(--box-offset) + 12px)) 0 0);
+}
+
+.phraseTwoInverted {
+  color: var(--yellowish);
+  text-shadow: 0 0.03em 0.08em rgba(0, 0, 0, 0.5);
+  clip-path: inset(0 0 0 calc(var(--phrase-width) - calc(var(--box-width) + var(--box-offset))));
+}
+
+
+@media (max-width: 360px) {
+  .brandStatements {
+    --font-size: clamp(32px, calc(9dvw), 50px);
+  }
+}
+
+@media (min-width: 600px) {
+  .homeMainTwo {
+    display: flex;
+    align-items: center;
+  }
+
+  .homeMainTwoContent {
+    display: flex;
+    height: fit-content;
+    flex-direction: row-reverse;
+    align-items: center;
+    background: linear-gradient(90deg, transparent, var(--yellowish));
+  }
+
+  .carouselContainer {
+    width: 50%;
+    height: fit-content;
+  }
+
+  .brandStatements {
+    --phrase-width: clamp(290px, 40dvw, 400px);
+    --box-width: clamp(145px, 20dvw, 200px);
+    --font-size: clamp(32px, calc(4.5dvw), 50px);
+    --phrase-offset: 32px;
+    width: 50%;
+    height: clamp(300px, 50dvw, 400px);
+  }
+
+  .boxOne,
+  .boxTwo {
+    box-shadow: 0 3px 7px -3px rgb(0, 0, 0, 0.5);
+  }
 }

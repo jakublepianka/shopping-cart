@@ -22,18 +22,52 @@ export const Home = () => {
           <h1 className={styles.mainHeading}>
             Accessories that keep up with your phone
           </h1>
+          <h2 className={styles.subHeading}>Accessories done right</h2>
           <Link to="/shop" className={styles.shopLink}>
             Shop Now !
           </Link>
         </div>
       </div>
       <div className={styles.homeMainTwo}>
-          <Carousel
-            images={images}
-            showLabel={true}
-            isLink={true}
-            carouselOptions={carouselOptions}
-          ></Carousel>
+        <div className={styles.homeMainTwoContent}>
+          <div className={styles.carouselContainer}>
+            <Carousel
+              images={images}
+              showLabel={true}
+              isLink={true}
+              carouselOptions={carouselOptions}
+            ></Carousel>
+          </div>
+          <div className={styles.brandStatements}>
+            <section
+              className={styles.statementsSection}
+              aria-label="Statements"
+            >
+              <div className={styles.statementContainer}>
+                <div className={styles.boxOne}></div>
+                <h1 className={styles.phraseOneBase}>
+                  Small upgrades,
+                  <br /> big difference
+                </h1>
+                <h1 className={styles.phraseOneInverted} aria-hidden="true">
+                  Small upgrades,
+                  <br /> big difference
+                </h1>
+              </div>
+              <div className={styles.statementContainer}>
+                <div className={styles.boxTwo}></div>
+                <h1 className={styles.phraseTwoBase}>
+                  Accessories that
+                  <br /> click with style
+                </h1>
+                <h1 className={styles.phraseTwoInverted} aria-hidden="true">
+                  Accessories that
+                  <br /> click with style
+                </h1>
+              </div>
+            </section>
+          </div>
+        </div>
       </div>
     </>
   );

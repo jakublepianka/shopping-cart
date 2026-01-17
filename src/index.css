@@ -26,6 +26,8 @@
   --tealish: #90e0e1;
   --dark-grey: #222222;
   --dark-grey-tl: #22222277;
+  --header-heading-height: clamp(32px, 9dvw, 52px);
+  --header-height: calc(var(--header-heading-height) + 30px);
   font-family: 'InputMono-Thin', monospace;
 }
 
@@ -38,12 +40,12 @@ body {
   height: 100%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+main {
+  height: calc(100% - var(--header-height));
+  overflow-y: visible;
+}
+
+h1, h2, h3 {
   font-family: 'Gilroy', sans-serif;
   margin: 0;
 }
@@ -51,6 +53,12 @@ h6 {
 a {
   text-decoration-line: none;
   font-weight: 600;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
 }
 
 @media (hover: hover) and (pointer: fine) {}

@@ -2,11 +2,6 @@
   position: relative;
   overflow: hidden;
   background-color: var(--yellowish);
-  box-shadow: 0 3px 15px -3px rgb(0, 0, 0, 0.5);
-}
-
-.carouselSection {
-  aspect-ratio: 1/1;
 }
 
 .label {
@@ -46,7 +41,8 @@
 
 .carouselImage {
   display: block;
-  width: 100%;
+  margin: 0 auto;
+  width: clamp(300px, 100%, 400px);
 }
 
 .prevButton,
@@ -136,4 +132,10 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media (min-width: 600px) {
+  .carousel {
+    background-color: transparent;
+  }
 }

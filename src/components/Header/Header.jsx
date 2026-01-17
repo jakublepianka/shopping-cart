@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import bagIcon from "../../assets/icons/shopping-bag.png";
 import barsIcon from "../../assets/icons/bars-edited.png";
@@ -33,7 +33,7 @@ export const Header = () => {
   return (
     <header>
       <div className={styles.header}>
-        <h1>
+        <h1 className={styles.headerHeading}>
           <Link to="/" onClick={handleDropdownClose}>
             <span className={styles.halfOne}>Mobile</span>
             <span className={styles.halfTwo}>Vault</span>
@@ -76,7 +76,7 @@ export const Header = () => {
                   className={styles.navLink}
                   onClick={handleDropdownClose}
                 >
-                  Home
+                  HOME
                 </Link>
               </li>
               <li className={styles.navItem}>
@@ -85,7 +85,7 @@ export const Header = () => {
                   className={styles.navLink}
                   onClick={handleDropdownClose}
                 >
-                  Shop
+                  SHOP
                 </Link>
               </li>
             </ul>
