@@ -87,4 +87,12 @@ describe("ProductModal component", () => {
     expect(description).toBeInTheDocument();
     expect(text).toBeInTheDocument();
   });
+
+  it("Shows Rating", () => {
+    render(<ProductModal product={productFixture} />);
+    const rating = screen.getByRole("img", {
+      name: `Rating: ${productFixture.rating} out of 5`,
+    });
+    expect(rating).toBeInTheDocument();
+  });
 });

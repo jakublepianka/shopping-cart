@@ -7,13 +7,6 @@
   width: 100%;
 }
 
-.carouselSection {
-  aspect-ratio: 1/1;
-  /* border-top: 2px solid var(--tealish); */
-  /* border-bottom: 2px solid var(--tealish); */
-  /* box-shadow: 0 0px 12px -3px rgb(0, 0, 0, 0.5); */
-}
-
 .view {
   position: absolute;
   inset: 0;
@@ -21,7 +14,6 @@
 
 .imageList {
   display: flex;
-  border: 1px solid black;
 }
 
 .carouselItem {
@@ -44,7 +36,6 @@
 
 .goToButtonWrapper {
   background-color: rgb(0,0,0,0.3);
-  /* border: 1px solid black; */
   border-radius: 100%;
 }
 

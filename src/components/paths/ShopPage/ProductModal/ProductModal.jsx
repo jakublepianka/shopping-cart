@@ -1,8 +1,10 @@
 import styles from "./ProductModal.module.css";
 import carouselStyles from "./Carousel.module.css";
+import ratingStyles from "./Rating.module.css";
 import plusIcon from "../../../../assets/icons/plus.png";
 import { Carousel } from "../../../Carousel/Carousel";
 import { AddToCartControls } from "./AddToCartControls/AddToCartControls";
+import { Rating } from "../ProductCard/ProductCardOverlay/Rating/Rating";
 
 export const ProductModal = ({ product, onClose }) => {
   const images = product.images || [];
@@ -32,6 +34,12 @@ export const ProductModal = ({ product, onClose }) => {
         >
           <img src={plusIcon} className={styles.closeIcon} alt="" />
         </button>
+        <div className={styles.ratingContainer}>
+          <Rating
+            rating={product.rating}
+            ratingClassNames={{ ...ratingStyles }}
+          ></Rating>
+        </div>
         <Carousel
           images={images}
           carouselOptions={carouselOptions}
@@ -49,7 +57,6 @@ export const ProductModal = ({ product, onClose }) => {
         ></Carousel>
         <div className={styles.body}>
           <AddToCartControls product={product} />
-
           <section className={styles.section}>
             <h2 className={styles.sectionHeading}>Description</h2>
             <p className={styles.bodyText}>{product.description}</p>

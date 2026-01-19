@@ -1,0 +1,22 @@
+.rating {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  z-index: 1;
+}
+
+.star {
+  display: block;
+  width: 28px;
+  min-width: 28px;
+}
+
+.backStar {
+  position: absolute;
+  display: block;
+  width: 28px;
+  min-width: 28px;
+  right: 0;
+  bottom: 0;
+  opacity: 0.2;
+}

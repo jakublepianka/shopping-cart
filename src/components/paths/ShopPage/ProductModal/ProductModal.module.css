@@ -1,17 +1,20 @@
 .modalBackdrop {
   position: fixed;
   inset: 0;
-  z-index: 998;
-  background-color: rgb(0,0,0,0.5);
+  z-index: 9998;
+  background-color: rgb(0, 0, 0, 0.5);
 }
 
 .modalCard {
   position: fixed;
-  z-index: 999;
+  z-index: 9999;
   background-color: white;
   inset: 16px;
   border-radius: 2px;
-  overflow-y: scroll;
+  overflow-y: auto;
+  max-width: 600px;
+  margin: auto;
+  animation: unfold 0.4s ease-out;
 }
 
 .productName {
@@ -37,13 +40,18 @@
 }
 
 .section {
-  padding: 0 20px;
+  padding: 8px 20px;
+}
 
+.ratingContainer {
+  position: absolute;
+  width: fit-content;
+  padding: 16px 0 0 18px;
 }
 
 .sectionHeading {
   font-size: 20px;
-  margin: 12px 0;
+  margin-bottom: 12px;
   letter-spacing: 1px;
   text-indent: 1px;
 }
@@ -51,4 +59,16 @@
 .bodyText {
   font-weight: 600;
   line-height: 1.5;
+}
+
+@keyframes unfold {
+  from {
+    transform: translateY(-15%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

@@ -2,13 +2,20 @@ import styles from "./Rating.module.css";
 import starIcon from "../../../../../../assets/icons/star.png";
 import { Fragment } from "react";
 
-export const Rating = ({ rating }) => {
+const defaultClasses = {
+  rating: styles.rating,
+  star: styles.star,
+  backStar: styles.backStar,
+};
+
+export const Rating = ({ rating, ratingClassNames = {} }) => {
+  const classes = { ...defaultClasses, ...ratingClassNames };
   const ratingCeil = Math.ceil(rating);
   const ratingDecimal = (rating - Math.floor(rating)) * 100;
 
   return (
     <div
-      className={styles.rating}
+      className={classes.rating}
       title={rating}
       role="img"
       aria-label={`Rating: ${rating} out of 5`}
@@ -23,11 +30,11 @@ export const Rating = ({ rating }) => {
               }}
               aria-hidden="true"
             >
-              <img src={starIcon} className={styles.star} alt=""></img>
+              <img src={starIcon} className={classes.star} alt=""></img>
             </span>
             <img
               src={starIcon}
-              className={styles.backStar}
+              className={classes.backStar}
               alt=""
               aria-hidden="true"
             />
@@ -36,7 +43,7 @@ export const Rating = ({ rating }) => {
           <img
             key={i}
             src={starIcon}
-            className={styles.star}
+            className={classes.star}
             alt=""
             aria-hidden="true"
           ></img>
