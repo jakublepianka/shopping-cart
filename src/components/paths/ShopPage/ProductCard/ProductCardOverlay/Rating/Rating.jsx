@@ -1,5 +1,6 @@
 import styles from "./Rating.module.css";
 import starIcon from "../../../../../../assets/icons/star.png";
+import { Fragment } from "react";
 
 export const Rating = ({ rating }) => {
   const ratingCeil = Math.ceil(rating);
@@ -14,16 +15,23 @@ export const Rating = ({ rating }) => {
     >
       {Array.from({ length: ratingCeil }).map((_, i) =>
         i + 1 === ratingCeil ? (
-          <span
-            key={i}
-            style={{
-              overflow: "hidden",
-              clipPath: `inset(0 ${100 - ratingDecimal}% 0 0)`,
-            }}
-            aria-hidden="true"
-          >
-            <img src={starIcon} className={styles.star} alt=""></img>
-          </span>
+          <Fragment key={i}>
+            <span
+              style={{
+                overflow: "hidden",
+                clipPath: `inset(0 ${100 - ratingDecimal}% 0 0)`,
+              }}
+              aria-hidden="true"
+            >
+              <img src={starIcon} className={styles.star} alt=""></img>
+            </span>
+            <img
+              src={starIcon}
+              className={styles.backStar}
+              alt=""
+              aria-hidden="true"
+            />
+          </Fragment>
         ) : (
           <img
             key={i}

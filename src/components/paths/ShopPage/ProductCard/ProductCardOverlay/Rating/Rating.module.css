@@ -4,11 +4,20 @@
   top: 10px;
   right: 10px;
   gap: 4px;
+  z-index: 1;
 }
 
 .star {
   display: block;
-  width: 26px;
-  min-width: 26px;
-  filter: brightness(0);
+  width: 28px;
+  min-width: 28px;
+}
+
+.backStar {
+  position: absolute;
+  display: block;
+  width: 28px;
+  min-width: 28px;
+  bottom: 0;
+  opacity: 0.2;
 }

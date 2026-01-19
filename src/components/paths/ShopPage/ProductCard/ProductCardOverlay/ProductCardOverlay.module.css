@@ -4,7 +4,7 @@
 }
 
 .productTitle {
-  padding: 12px 42px 12px 12px;
+  padding: 12px 48px 12px 12px;
   font-size: 20px;
   letter-spacing: 1px;
   text-indent: 1px;
@@ -24,9 +24,10 @@
 .addButton {
   position: absolute;
   bottom: 8px;
-  right: 14px;
+  right: 10px;
   background-color: transparent;
   border: none;
+  z-index: 1;
 }
 
 .addButton::after {

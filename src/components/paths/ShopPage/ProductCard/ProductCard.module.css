@@ -1,9 +1,19 @@
 .productCard {
   position: relative;
   background-color: white;
-  border: solid 1px white;
   border-radius: 2px;
-  padding-top: 42px;
+  padding-top: 48px;
+}
+
+.productCard::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;  
+  width: 48px;
+  height: 100%;
+  background-color: var(--yellowish);
+  z-index: 0;
 }
 
 .thumbnail {
