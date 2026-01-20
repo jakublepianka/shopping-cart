@@ -21,6 +21,7 @@
   display: grid;
   place-content: center;
   height: 400px;
+  max-width: 584px;
   background-color: white;
   border-radius: 2px;
   margin: 0 16px;
@@ -60,4 +61,36 @@
 .shopLink:focus::after,
 .shopLink:focus-visible::after {
   transform: scaleX(1);
+}
+
+@media (min-width: 600px) {
+  .cartListSection {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .cartListContainer {
+    display: flex;
+  }
+
+  .emptyCart {
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1400px) {
+  .cartListSection {
+    max-width: 100%;
+    margin: 0;
+  }
+  .cartListContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+  }
+
+  .cartList {
+    min-width: 600px;
+    grid-column: 2/3;
+  }
 }

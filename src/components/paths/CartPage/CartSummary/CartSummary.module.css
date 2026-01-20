@@ -1,6 +1,7 @@
 .cartSummary {
   background-color: white;
   padding: 16px 40px;
+  margin: 8px 16px 0;
 }
 
 .summaryHeading {
@@ -19,3 +20,20 @@
   padding-top: 4px;
 }
 
+.summaryContent {
+  white-space: nowrap;
+}
+
+@media (min-width: 600px) {
+  .cartSummary {
+    position: sticky;
+    top: 8px;
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .summarySubList {
+    margin-left: 16px;
+  }
+}

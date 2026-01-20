@@ -20,26 +20,28 @@ export const Cart = () => {
       <h1 className={styles.cartHeading}>Cart</h1>
       <section className={styles.cartListSection}>
         {cart.length ? (
-          <ul className={styles.cartList}>
-            {cart.map((product) => (
-              <CartItemCard
-                key={product.id}
-                id={product.id}
-                name={product.name}
-                price={product.price}
-                cartQuantity={product.quantity}
-                availableQuantity={product.availableQuantity}
-                image={product.image}
-                onDelete={() => deleteFromCart(product.id)}
-                onIncrement={() => incrementCartItem(product.id)}
-                onDecrement={() => decrementCartItem(product.id)}
-                onQuantityChange={(value) =>
-                  setCartItemQuantity(product.id, value)
-                }
-              />
-            ))}
+          <div className={styles.cartListContainer}>
+            <ul className={styles.cartList}>
+              {cart.map((product) => (
+                <CartItemCard
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  price={product.price}
+                  cartQuantity={product.quantity}
+                  availableQuantity={product.availableQuantity}
+                  image={product.image}
+                  onDelete={() => deleteFromCart(product.id)}
+                  onIncrement={() => incrementCartItem(product.id)}
+                  onDecrement={() => decrementCartItem(product.id)}
+                  onQuantityChange={(value) =>
+                    setCartItemQuantity(product.id, value)
+                  }
+                />
+              ))}
+            </ul>
             <CartSummary quantity={sumQuantity} price={sumPrice} />
-          </ul>
+          </div>
         ) : (
           <div className={styles.emptyCart}>
             <h2>Nothing in your cart yet!</h2>

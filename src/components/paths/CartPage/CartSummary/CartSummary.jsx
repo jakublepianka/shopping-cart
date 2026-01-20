@@ -2,7 +2,7 @@ import styles from "./CartSummary.module.css";
 
 export const CartSummary = ({ quantity, price }) => {
   return (
-    <li className={styles.cartSummary} tabIndex={0}>
+    <aside className={styles.cartSummary} tabIndex={0}>
       <h2 className={styles.summaryHeading}>Total </h2>
       <ul className={styles.summarySubList}>
         <li>
@@ -16,6 +16,6 @@ export const CartSummary = ({ quantity, price }) => {
           </h3>
         </li>
       </ul>
-    </li>
+    </aside>
   );
 };
