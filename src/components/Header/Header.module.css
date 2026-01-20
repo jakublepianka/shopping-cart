@@ -19,7 +19,6 @@
   z-index: 999;
   width: 100%;
   background-color: var(--yellowish);
-  /* background-color: var(--dark-grey-tl); */
   color: white;
   display: flex;
   justify-content: space-between;
@@ -41,7 +40,6 @@ nav {
 
 .cartIcon {
   width: 28px;
-  /* filter: invert(1); */
   transform: translateY(-2px);
 }
 
@@ -54,7 +52,6 @@ nav {
 
 .navIcon {
   display: block;
-  /* filter: invert(1); */
   width: 36px;
   height: 24px;
 }
