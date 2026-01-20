@@ -28,6 +28,7 @@
   background-color: transparent;
   border: none;
   z-index: 1;
+  cursor: pointer;
 }
 
 .addButton::after {

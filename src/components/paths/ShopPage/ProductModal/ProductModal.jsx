@@ -5,6 +5,7 @@ import plusIcon from "../../../../assets/icons/plus.png";
 import { Carousel } from "../../../Carousel/Carousel";
 import { AddToCartControls } from "./AddToCartControls/AddToCartControls";
 import { Rating } from "../ProductCard/ProductCardOverlay/Rating/Rating";
+import { ReviewsSection } from "./ReviewsSection/ReviewsSection";
 
 export const ProductModal = ({ product, onClose }) => {
   const images = product.images || [];
@@ -40,6 +41,9 @@ export const ProductModal = ({ product, onClose }) => {
             ratingClassNames={{ ...ratingStyles }}
           ></Rating>
         </div>
+        <div className={styles.priceContainer}>
+          <span aria-label="Price">${product.price}</span>
+        </div>
         <Carousel
           images={images}
           carouselOptions={carouselOptions}
@@ -60,6 +64,9 @@ export const ProductModal = ({ product, onClose }) => {
           <section className={styles.section}>
             <h2 className={styles.sectionHeading}>Description</h2>
             <p className={styles.bodyText}>{product.description}</p>
+          </section>
+          <section className={styles.section}>
+            <ReviewsSection reviews={product.reviews} />
           </section>
         </div>
       </div>

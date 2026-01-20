@@ -21,7 +21,7 @@ export const Rating = ({ rating, ratingClassNames = {} }) => {
       aria-label={`Rating: ${rating} out of 5`}
     >
       {Array.from({ length: ratingCeil }).map((_, i) =>
-        i + 1 === ratingCeil ? (
+        i + 1 === ratingCeil && ratingDecimal > 0 ? (
           <Fragment key={i}>
             <span
               style={{

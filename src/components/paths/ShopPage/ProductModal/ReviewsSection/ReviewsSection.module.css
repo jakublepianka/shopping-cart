@@ -1,0 +1,53 @@
+.sectionHeading {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+
+.review {
+  padding: 16px 0;
+}
+
+.review:first-child {
+  padding: 12px 0 16px;
+}
+
+.hr {
+  transform: scaleY(0.5);
+}
+
+.reviewHeading {
+  display: flex;
+  margin: 8px 0 16px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.dateAndUser {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  transform: translateY(4px);
+}
+
+.reviewerName {
+  border-right: 2px solid black;
+}
+
+.vr {
+  height: 18px;
+}
+
+.bodyText {
+  font-weight: 600;
+  line-height: 1.5;
+  text-indent: 8px;
+}
+
+.noReviews {
+  text-align: center;
+  margin: 24px 24px 0;
+  letter-spacing: 1px;
+  text-indent: 1px;
+}

@@ -1,0 +1,17 @@
+.rating {
+  position: relative;
+  display: flex;
+  gap: 4px;
+  z-index: 1;
+}
+
+.star {
+  display: block;
+  width: 20px;
+  min-width: 20px;
+}
+
+.backStar {
+  display: none;
+}
+

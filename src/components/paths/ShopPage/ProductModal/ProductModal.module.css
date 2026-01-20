@@ -13,6 +13,8 @@
   border-radius: 2px;
   overflow-y: auto;
   max-width: 600px;
+  overscroll-behavior: contain;
+  padding-bottom: 32px;
   margin: auto;
   animation: unfold 0.4s ease-out;
 }
@@ -40,7 +42,7 @@
 }
 
 .section {
-  padding: 8px 20px;
+  padding: 16px 20px 0;
 }
 
 .ratingContainer {
@@ -49,11 +51,19 @@
   padding: 16px 0 0 18px;
 }
 
+.priceContainer {
+  position: absolute;
+  top: var(--carousel-image-width);
+  right: 16px;
+  font-weight: 600;
+  font-size: 18px;
+  transform: translateY(100%);
+}
+
 .sectionHeading {
   font-size: 20px;
   margin-bottom: 12px;
-  letter-spacing: 1px;
-  text-indent: 1px;
+  letter-spacing: 2px;
 }
 
 .bodyText {
