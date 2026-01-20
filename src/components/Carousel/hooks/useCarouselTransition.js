@@ -13,7 +13,7 @@ export const useCarouselTransition = ({ duration }) => {
   };
 
   const enable = () => {
-    listRef.current.style.transition = `transform ${duration}ms ease-in-out`;
+    listRef.current.style.transition = `transform ${duration}ms ease-out`;
   };
 
   const disable = () => {

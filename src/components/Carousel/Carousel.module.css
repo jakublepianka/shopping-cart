@@ -42,7 +42,7 @@
 .carouselImage {
   display: block;
   margin: 0 auto;
-  width: clamp(300px, 100%, 400px);
+  width: var(--carousel-image-width);
 }
 
 .prevButton,
@@ -136,6 +136,16 @@
 
 @media (min-width: 600px) {
   .carousel {
-    background-color: transparent;
+    background-color: var(--yellowish);
+  }
+
+  .carouselImage {
+    width: clamp(270px, 50vw, 400px);
+  }
+}
+
+@media (min-width: 1115px) {
+  .carouselImage {
+    width: clamp(270px, 30vw, 400px);
   }
 }

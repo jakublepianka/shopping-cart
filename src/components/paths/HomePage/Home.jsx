@@ -11,7 +11,7 @@ export const Home = () => {
 
   const carouselOptions = {
     isAuto: true,
-    transitionDuration: 1000,
+    transitionDuration: 800,
     transitionDelay: 6000,
   };
 
