@@ -1,3 +1,7 @@
+main:has(.shopHeading) {
+  height: fit-content;
+}
+
 .shopHeading {
   padding: 12px 16px;
   font-size: 20px;

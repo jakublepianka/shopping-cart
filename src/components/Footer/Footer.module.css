@@ -1,7 +1,8 @@
 footer {
-
+  height: 100vh;
 }
 
 .contentContainer {
-
+  height: 70%;
+  background-color: #222222;
 }

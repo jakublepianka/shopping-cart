@@ -1,13 +1,17 @@
+main:has(.homeMainOne) {
+  height: calc(200vh - 2px);
+}
+
 .homeMainOne {
   display: flex;
   position: relative;
-  height: 100%;
+  height: 50%;
   align-items: center;
 }
 
 .homeMainTwo {
   position: relative;
-  height: calc(100% + var(--header-height));
+  height: 50%;
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
@@ -111,7 +115,6 @@
   --phrase-offset: 16px;
   --box-offset: calc(var(--phrase-offset)/2);
   flex: 1;
-  top: calc(100dvw);
   width: 100%;
   min-height: 275px;
 }
@@ -211,7 +214,7 @@
     display: flex;
     align-items: center;
   }
-  
+
   .boxOne,
   .boxTwo {
     box-shadow: 0 3px 7px -3px rgb(0, 0, 0, 0.5);
@@ -224,7 +227,7 @@
   }
 
   .carouselContainer {
-    width: 100%;
+    max-width: 100;
     height: fit-content;
     background-color: var(--yellowish);
     box-shadow: 0 3px 7px -3px rgb(0, 0, 0, 0.5);

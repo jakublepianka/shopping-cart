@@ -33,6 +33,7 @@
 
 .imageList {
   display: flex;
+  max-width: calc(100vw - clamp(12px, 1.69vw, 50008px));
 }
 
 .carouselItem {

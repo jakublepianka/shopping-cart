@@ -50,7 +50,7 @@ export const Carousel = ({
           )}
           <div className={classes.view}></div>
           {isLink ? (
-            <Link to="/shop" aria-label="Shop">
+            <Link to="/shop" aria-label="Shop" className={styles.shopLink}>
               <ImageList
                 images={modifiedImageList}
                 onTransitionStart={onTransitionStart}

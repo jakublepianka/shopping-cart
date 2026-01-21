@@ -34,20 +34,19 @@
 
 html,
 body {
-  height: 100%;
+  height: fit-content;
   background-color: var(--tealish);
 }
 
 #root {
+  display: grid;
+  grid-template-rows: auto calc(1fr - var(--header-height) - 2px) 1fr 1fr;
   height: 100%;
 }
 
-main {
-  height: calc(100% - var(--header-height) - 2px);
-  overflow-y: visible;
-}
-
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Gilroy', sans-serif;
   margin: 0;
 }
@@ -65,6 +64,12 @@ li {
 
 button {
   cursor: pointer;
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  main {
+    min-height: calc(200vmax - 2px);
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {}
