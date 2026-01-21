@@ -60,4 +60,8 @@ button {
   cursor: pointer;
 }
 
-@media (hover: hover) and (pointer: fine) {}
+button:active,
+a:active {
+  transform: scale(0.9);
+  transition: transform 0.2s ease-out;
+}
