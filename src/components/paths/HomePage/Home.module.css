@@ -1,17 +1,21 @@
 main:has(.homeMainOne) {
-  height: calc(200vh - 2px);
+  min-height: calc(100vh - 2px + clamp(675px, 100vh, 100vh) - var(--header-height));
+
 }
 
 .homeMainOne {
   display: flex;
   position: relative;
-  height: 50%;
+  height: 100vh;
   align-items: center;
 }
 
 .homeMainTwo {
+  display: flex;
+  align-items: center;
   position: relative;
-  height: 50%;
+  height: 100vh;
+  min-height: calc(var(--carousel-image-width) + 275px);
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
@@ -20,7 +24,7 @@ main:has(.homeMainOne) {
   }
 
   .homeMainTwo {
-    min-height: calc(100vmax - var(--header-height));
+    min-height: clamp(calc(var(--carousel-image-width) + 275px), calc(100vmax - var(--header-height)), calc(100vmax - var(--header-height)));
   }
 }
 
@@ -29,6 +33,7 @@ main:has(.homeMainOne) {
   flex-direction: column;
   height: 100%;
   width: 100%;
+  min-height: calc(var(--carousel-image-width) + 275px);
 }
 
 .carouselContainer {
@@ -234,12 +239,9 @@ main:has(.homeMainOne) {
   }
 
   .brandStatements {
-    --phrase-width:
-      clamp(290px, 40dvw, 500px);
-    --box-width:
-      clamp(145px, 20dvw, 250px);
-    --font-size:
-      clamp(32px, calc(4.5dvw), 64px);
+    --phrase-width: clamp(290px, 40dvw, 500px);
+    --box-width: clamp(145px, 20dvw, 250px);
+    --font-size: clamp(32px, calc(4.5dvw), 64px);
     --phrase-offset: 32px;
   }
 

@@ -38,12 +38,6 @@ body {
   background-color: var(--tealish);
 }
 
-#root {
-  display: grid;
-  grid-template-rows: auto calc(1fr - var(--header-height) - 2px) 1fr 1fr;
-  height: 100%;
-}
-
 h1,
 h2,
 h3 {
@@ -64,12 +58,6 @@ li {
 
 button {
   cursor: pointer;
-}
-
-@media (max-width: 1024px) and (orientation: landscape) {
-  main {
-    min-height: calc(200vmax - 2px);
-  }
 }
 
 @media (hover: hover) and (pointer: fine) {}

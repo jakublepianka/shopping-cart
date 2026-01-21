@@ -33,7 +33,12 @@
 
 .imageList {
   display: flex;
-  max-width: calc(100vw - clamp(12px, 1.69vw, 50008px));
+}
+
+@media (pointer: fine) and (min-width: 600px) {
+  .imageList {
+    max-width: calc(100vw - clamp(12px, 1.69vw, 256px));
+  }
 }
 
 .carouselItem {
