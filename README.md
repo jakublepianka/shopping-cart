@@ -25,6 +25,7 @@ A modern, responsive e-commerce shopping cart application built with React and V
 
 ## Project Structure
 
+```
 src/
 ├── components/
 │ ├── Carousel/ # Image carousel component with autoplay
@@ -41,6 +42,7 @@ src/
 ├── hooks/
 │ └── useAddToCartControls/ # Custom hook for cart controls
 └── index.css # Global styles
+```
 
 ## Features in Detail
 
