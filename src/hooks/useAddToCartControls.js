@@ -3,7 +3,6 @@ import { useState } from "react";
 export const useAddToCartControls = ({ availableQuantity }) => {
   const [quantity, setQuantity] = useState(1);
   const [isValid, setIsValid] = useState(true);
-  // look into isValid based component behavior
 
   const incrementQuantity = () =>
     setQuantity((prev) => {
@@ -22,11 +21,13 @@ export const useAddToCartControls = ({ availableQuantity }) => {
     });
 
   const handleInputChange = (input) => {
-    validate(input);
     const newVal = Math.max(1, Math.min(input, availableQuantity));
     setQuantity(() => {
-      if (input === "" || input <= "0") return "";
-      return newVal
+      if (input === "" || input <= "0") {
+        validate(input);
+        return "";
+      }
+      return newVal;
     });
   };
 
