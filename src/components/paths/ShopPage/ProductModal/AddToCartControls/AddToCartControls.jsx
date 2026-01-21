@@ -2,6 +2,7 @@ import { CartInputControls } from "../../../../CartInputControls/CartInputContro
 import styles from "./AddToCartControls.module.css";
 import { useAddToCartControls } from "../../../../../hooks/useAddToCartControls";
 import { useCart } from "../../../../../context/Cart/useCart";
+import { useState } from "react";
 
 export const AddToCartControls = ({ product }) => {
   const { addToCart } = useCart();
@@ -12,10 +13,12 @@ export const AddToCartControls = ({ product }) => {
     decrementQuantity,
     handleInputChange,
   } = useAddToCartControls({ availableQuantity: product.stock });
+  const [animationTick, setAnimationTick] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isValid) return;
+    setAnimationTick((prev) => prev + 1);
     addToCart(product, quantity);
   };
 
@@ -25,7 +28,14 @@ export const AddToCartControls = ({ product }) => {
       onSubmit={handleSubmit}
       aria-label="Add to cart"
     >
-      <button type="submit" className={styles.submitToCart} disabled={!isValid}>
+      <button
+        type="submit"
+        key={animationTick}
+        className={`${styles.submitToCart} ${
+          animationTick ? styles.animate : undefined
+        }`}
+        disabled={!isValid}
+      >
         Add to cart
       </button>
       <CartInputControls

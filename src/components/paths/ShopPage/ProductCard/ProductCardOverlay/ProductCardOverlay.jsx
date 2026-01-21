@@ -6,7 +6,7 @@ import { useCart } from "../../../../../context/Cart/useCart";
 
 export const ProductCardOverlay = ({ product }) => {
   const { addToCart } = useCart();
-  const [animationTick, setAnimationTick] = useState(false);
+  const [animationTick, setAnimationTick] = useState(0);
 
   const handleClick = (e) => {
     e.stopPropagation();

@@ -15,6 +15,7 @@
   overflow-y: auto;
   max-width: 600px;
   overscroll-behavior: contain;
+  scrollbar-width: thin;
   padding-bottom: 32px;
   margin: auto;
   animation: slide-in 0.4s ease-out;

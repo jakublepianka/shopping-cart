@@ -42,7 +42,7 @@
 }
 
 .addButton.animate::after {
-  animation: slideFade 1s ease forwards;
+  animation: slide-fade 1s ease forwards;
   opacity: 1;
 }
 
@@ -50,7 +50,7 @@
   width: 28px;
 }
 
-@keyframes slideFade {
+@keyframes slide-fade {
   from {
     opacity: 1;
     transform: translateY(0px);

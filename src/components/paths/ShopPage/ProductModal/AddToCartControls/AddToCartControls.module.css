@@ -18,7 +18,7 @@
   text-indent: 4px;
   border: 2px solid var(--tealish);
   border-radius: 2px;
-  overflow: hidden;
+  overflow: visible;
   z-index: 1;
 }
 
@@ -44,7 +44,34 @@
   transition: transform 0.2s ease;
 }
 
-.submitToCart:active::after {
-  transform: scaleX(0);
-  transition: transform 0.2s ease;
+.submitToCart:disabled {
+  color: rgb(0, 0, 0, 0.6);
+}
+
+.submitToCart::before {
+  content: "+";
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  font-size: 32px;
+  font-weight: 100;
+  opacity: 0;
+  z-index: 999999;
+}
+
+.submitToCart.animate::before {
+  animation: slide-fade 1s ease-out forwards;
+  opacity: 1;
+}
+
+@keyframes slide-fade {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
 }
