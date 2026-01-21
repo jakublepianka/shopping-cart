@@ -12,6 +12,8 @@ main:has(.shopHeading) {
 
 .productListSection {
   padding-bottom: 32px;
+  margin: 0 auto;
+  max-width: 1800px;
 }
 
 .productList {
