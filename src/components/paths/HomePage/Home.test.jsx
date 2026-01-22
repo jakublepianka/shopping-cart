@@ -50,7 +50,6 @@ describe("Home component", () => {
       </MemoryRouter>
     );
     const link = screen.getByRole("link", { name: "Shop Now !" });
-    console.log(link);
     expect(link).toBeInTheDocument();
   });
 

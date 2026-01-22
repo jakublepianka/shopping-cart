@@ -145,6 +145,11 @@
     background-color: var(--yellowish);
   }
 
+  .label {
+    left: 32px;
+    top: 16px;
+  }
+ 
   .carouselImage {
     width: clamp(270px, 50vw, 400px);
   }
@@ -153,5 +158,10 @@
 @media (min-width: 1115px) {
   .carouselImage {
     width: clamp(270px, 30vw, 400px);
+  }
+  
+  .label {
+    left: 48px;
+    top: 16px;
   }
 }
