@@ -1,4 +1,5 @@
-# Shopping Cart
+
+# Shopping Cart | [Live Demo](https://jakublepianka-store.netlify.app)
 
 A modern, responsive e-commerce shopping cart application built with React and Vite.
 
